@@ -1,15 +1,193 @@
 <section id="education">
-  <div class="content">
-    <h2>Education</h2>
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    
+    <div class="education-rectangle">
+      <div class="triangle-top-left">
+        <div class="triangle-content">
+          <h3>Bachelor's Degree</h3>
+          <p class="institution">University Name</p>
+          <p class="field">Computer Science</p>
+          <p class="year">2019 - 2023</p>
+          <p class="description">Focused on software engineering, algorithms, and data structures. Graduated with honors.</p>
+        </div>
+      </div>
+      
+      <div class="triangle-bottom-right">
+        <div class="triangle-content">
+          <h3>Master's Degree</h3>
+          <p class="institution">University Name</p>
+          <p class="field">Software Engineering</p>
+          <p class="year">2023 - 2025</p>
+          <p class="description">Advanced studies in distributed systems, cloud architecture, and machine learning.</p>
+        </div>
+      </div>
+      
+      <svg class="diagonal-separator" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <line x1="100" y1="0" x2="0" y2="100" stroke="black" stroke-width="2" />
+      </svg>
+    </div>
   </div>
 </section>
 
 <style>
   section {
     min-height: 100vh;
+    padding: 4rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: white;
+  }
+
+  .education-rectangle {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+
+  .triangle-top-left,
+  .triangle-bottom-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    filter: brightness(1);
+  }
+
+  .triangle-top-left {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    background: linear-gradient(135deg, #3d2415 0%, #4a2c18 100%);
+  }
+
+  .triangle-bottom-right {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    background: linear-gradient(135deg, #3d1519 0%, #4a1820 100%);
+  }
+
+  .triangle-top-left:hover {
+    background: linear-gradient(135deg, #5a3620 0%, #6b4026 100%);
+    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  .triangle-bottom-right:hover {
+    background: linear-gradient(135deg, #5a2028 0%, #6b2630 100%);
+    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  .diagonal-separator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .triangle-content {
+    padding: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: white;
+    pointer-events: none;
+  }
+
+  .triangle-top-left .triangle-content {
+    align-items: flex-start;
+    text-align: left;
+    padding-right: 50%;
+  }
+
+  .triangle-bottom-right .triangle-content {
+    align-items: flex-end;
+    text-align: right;
+    padding-left: 50%;
+    justify-content: flex-end;
+  }
+
+  .triangle-content h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .institution {
+    font-size: 1.25rem;
+    color: #aaa;
+    margin: 0;
+  }
+
+  .field {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin: 0;
+  }
+
+  .year {
+    font-size: 0.95rem;
+    color: #888;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #bbb;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .education-rectangle {
+      height: 800px;
+    }
+
+    .triangle-top-left .triangle-content {
+      padding: 2rem;
+      padding-right: 40%;
+    }
+
+    .triangle-bottom-right .triangle-content {
+      padding: 2rem;
+      padding-left: 40%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .education-rectangle {
+      height: 900px;
+    }
+
+    .triangle-top-left .triangle-content,
+    .triangle-bottom-right .triangle-content {
+      padding: 1.5rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
   }
 </style>
 
