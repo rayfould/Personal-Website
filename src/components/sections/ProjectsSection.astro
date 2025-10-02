@@ -1,15 +1,48 @@
+---
+import ProjectCard from '@/components/ProjectCard.astro';
+import { projects } from '@/data/projects';
+---
+
 <section id="projects">
-  <div class="content">
-    <h2>Projects</h2>
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
   </div>
 </section>
 
 <style>
   section {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: white;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
-

@@ -136,3 +136,32 @@ README.md, to-do.txt
 - Build out individual section layouts and content
 - Add interactivity where needed
 
+================================================================================
+
+## SESSION 2 - October 2, 2025
+
+### GOALS
+- [X] Design projects page grid structure
+- [ ] Populate projects with content
+
+### STEPS COMPLETED
+- [DONE] Created Project TypeScript interface with filterable/sortable attributes
+- [DONE] Created projects data file for project storage
+- [DONE] Built ProjectCard component with rectangular card design
+- [DONE] Implemented responsive grid layout in ProjectsSection
+- [DONE] Added hover effects and styling for cards
+
+### FILES CREATED
+- src/types/project.ts
+- src/data/projects.ts
+- src/components/ProjectCard.astro
+
+### FILES MODIFIED
+- src/components/sections/ProjectsSection.astro
+
+### NOTES
+- Project interface includes attributes for future filtering: tags, category, date, status, featured
+- Grid uses CSS Grid with auto-fill and minmax(350px, 1fr) for responsiveness
+- Cards include: image, title, description, tags, links (project link + GitHub)
+- Dark theme styling consistent with site design
+
