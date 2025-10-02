@@ -42,8 +42,40 @@ RULES:
 - No placeholder content or components added
 - Ready to build features incrementally
 
+### SESSION 1 SUMMARY
+ACCOMPLISHED:
+- Created clean project skeleton with Astro + React + Tailwind + TypeScript
+- Established modular folder structure following industry best practices
+- Added path aliases for clean imports
+- Documented all directories with README files
+- Project is ready for feature development
+
+REMAINING:
+- Build out home page
+- Add dark theme
+- Integrate interactive particle background
+
 ================================================================================
 
-## NEXT SESSION PRIORITIES
-- TBD based on project direction
+## SESSION 1 (CONTINUED) - Home Page Development
+
+### GOALS
+- [X] Implement dark theme across the website
+- [X] Integrate particles.js library for interactive background on home page
+- [X] Set up home page structure
+
+### STEPS
+[DONE] Update to-do.txt with new goals
+[DONE] Add particles.js dependencies to package.json
+[DONE] Implement dark theme in globals.css
+[DONE] Create ParticlesBackground component
+[DONE] Integrate ParticlesBackground into home page
+
+### NOTES
+- Dark theme will be the default for entire site
+- Particles.js for interactive background effect on home page only
+
+### DEBUGGING
+[DONE] Fixed ParticlesBackground - converted config from particles.js v2 to tsParticles v3 format
+[DONE] Updated config to match user's particlesjs-config.json preferences
 
