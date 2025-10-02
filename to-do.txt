@@ -4,15 +4,56 @@
 
 This file tracks progress across development sessions and serves as project memory.
 
-RULES:
-1. For each new work session, create a new "SESSION" section with date/time
-2. List all goals and steps for that session under the session header
-3. Mark steps as [DONE] or [IN PROGRESS] as work progresses
-4. At the end of each session, create a "SESSION SUMMARY" with:
-   - What was accomplished
-   - What remains to be done
-   - Any blockers or notes for next session
-5. Keep this file updated in real-time - update after completing each step
+### DURING A SESSION:
+1. Create a new "SESSION X" section with date at the start of each session
+2. Add goals as they emerge, mark them [X] when completed
+3. Track steps in real-time, marking each [DONE] as you complete it
+4. Add NOTES, DEBUGGING, or other subsections as needed during work
+5. If session has multiple phases, you can use subsections, but consolidate at the end
+
+### AT END OF SESSION:
+1. Consolidate all session entries into ONE clean section (remove fragmented entries)
+2. Organize accomplishments by logical categories (Foundation, Design, Features, etc.)
+3. Include these sections in final summary:
+   - **GOALS COMPLETED** - High-level objectives achieved
+   - **KEY ACCOMPLISHMENTS** - Detailed breakdown by category
+   - **FILES CREATED** - List of new files/components
+   - **TECHNICAL NOTES** - Important decisions, patterns, gotchas
+   - **SESSION SUMMARY** - What was accomplished, current state, next priorities
+
+### FORMAT EXAMPLE:
+```
+## SESSION X - Date
+
+### GOALS COMPLETED
+- [X] Goal 1
+- [X] Goal 2
+
+### KEY ACCOMPLISHMENTS
+**Category 1:**
+- Item
+- Item
+
+**Category 2:**
+- Item
+
+### FILES CREATED
+- List of files
+
+### TECHNICAL NOTES
+- Important decisions
+
+### SESSION SUMMARY
+**What was accomplished:**
+**Current state:**
+**Next priorities:**
+```
+
+### BEST PRACTICES:
+- Update in real-time during session
+- Be specific and detailed
+- Consolidate at session end for clarity
+- Next session should start fresh by reading previous summary
 
 ================================================================================
 
