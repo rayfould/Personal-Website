@@ -157,6 +157,7 @@ README.md, to-do.txt
 - [DONE] Added progress values to all mock projects
 - [DONE] Changed 100% progress to display "Completed"
 - [DONE] Added drop shadow on card hover
+- [DONE] Implemented circular cursor-following glow effect on cards
 
 ### FILES CREATED
 - src/types/project.ts
