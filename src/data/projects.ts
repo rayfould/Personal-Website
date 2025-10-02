@@ -11,7 +11,8 @@ export const projects: Project[] = [
     status: 'completed',
     featured: true,
     link: 'https://example.com',
-    github: 'https://github.com/username/ecommerce'
+    github: 'https://github.com/username/ecommerce',
+    progress: 100
   },
   {
     id: 'project-2',
@@ -22,7 +23,8 @@ export const projects: Project[] = [
     date: '2024-12',
     status: 'completed',
     featured: true,
-    github: 'https://github.com/username/taskapp'
+    github: 'https://github.com/username/taskapp',
+    progress: 100
   },
   {
     id: 'project-3',
@@ -33,7 +35,8 @@ export const projects: Project[] = [
     date: '2024-11',
     status: 'in-progress',
     featured: false,
-    link: 'https://example.com'
+    link: 'https://example.com',
+    progress: 65
   },
   {
     id: 'project-4',
@@ -45,7 +48,8 @@ export const projects: Project[] = [
     status: 'completed',
     featured: true,
     link: 'https://example.com',
-    github: 'https://github.com/username/fitness'
+    github: 'https://github.com/username/fitness',
+    progress: 100
   },
   {
     id: 'project-5',
@@ -56,7 +60,8 @@ export const projects: Project[] = [
     date: '2024-09',
     status: 'completed',
     featured: false,
-    github: 'https://github.com/username/weather'
+    github: 'https://github.com/username/weather',
+    progress: 100
   },
   {
     id: 'project-6',
@@ -67,7 +72,8 @@ export const projects: Project[] = [
     date: '2024-08',
     status: 'in-progress',
     featured: true,
-    github: 'https://github.com/username/wallet'
+    github: 'https://github.com/username/wallet',
+    progress: 75
   },
   {
     id: 'project-7',
@@ -79,7 +85,8 @@ export const projects: Project[] = [
     status: 'completed',
     featured: false,
     link: 'https://example.com',
-    github: 'https://github.com/username/devops-tool'
+    github: 'https://github.com/username/devops-tool',
+    progress: 100
   },
   {
     id: 'project-8',
@@ -90,7 +97,8 @@ export const projects: Project[] = [
     date: '2024-06',
     status: 'archived',
     featured: false,
-    github: 'https://github.com/username/analytics'
+    github: 'https://github.com/username/analytics',
+    progress: 85
   },
   {
     id: 'project-9',
@@ -102,7 +110,8 @@ export const projects: Project[] = [
     status: 'completed',
     featured: true,
     link: 'https://example.com',
-    github: 'https://github.com/username/chat'
+    github: 'https://github.com/username/chat',
+    progress: 100
   }
 ];
 

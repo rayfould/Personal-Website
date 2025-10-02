@@ -10,5 +10,6 @@ export interface Project {
   link?: string;
   github?: string;
   image?: string;
+  progress?: number;
 }
 

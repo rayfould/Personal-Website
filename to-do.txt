@@ -150,6 +150,13 @@ README.md, to-do.txt
 - [DONE] Built ProjectCard component with rectangular card design
 - [DONE] Implemented responsive grid layout in ProjectsSection
 - [DONE] Added hover effects and styling for cards
+- [DONE] Added 9 mock projects for layout testing
+- [DONE] Made cards more vertical with fixed image height (250px)
+- [DONE] Added progress bar field to Project type
+- [DONE] Implemented hover overlay with progress bar and action buttons
+- [DONE] Added progress values to all mock projects
+- [DONE] Changed 100% progress to display "Completed"
+- [DONE] Added drop shadow on card hover
 
 ### FILES CREATED
 - src/types/project.ts
