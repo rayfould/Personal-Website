@@ -1,6 +1,11 @@
 ---
 import '../styles/globals.css';
-import ParticlesBackground from '@/components/ParticlesBackground.astro';
+import Navigation from '@/components/layout/Navigation.astro';
+import HomeSection from '@/components/sections/HomeSection.astro';
+import ProjectsSection from '@/components/sections/ProjectsSection.astro';
+import TimelineSection from '@/components/sections/TimelineSection.astro';
+import EducationSection from '@/components/sections/EducationSection.astro';
+import ReachOutSection from '@/components/sections/ReachOutSection.astro';
 ---
 
 <html lang="en">
@@ -10,7 +15,13 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
     <title>Portfolio</title>
   </head>
   <body>
-    <ParticlesBackground />
-    <h1>Home</h1>
+    <Navigation />
+    <main>
+      <HomeSection />
+      <ProjectsSection />
+      <TimelineSection />
+      <EducationSection />
+      <ReachOutSection />
+    </main>
   </body>
 </html>

@@ -1,0 +1,26 @@
+---
+import ParticlesBackground from '@/components/ParticlesBackground.astro';
+---
+
+<section id="home">
+  <ParticlesBackground />
+  <div class="content">
+    <h1>Home</h1>
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 10;
+  }
+</style>
+
