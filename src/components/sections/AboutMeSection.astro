@@ -1,0 +1,451 @@
+---
+// About Me Section with Interactive Cards
+---
+
+<section id="about" class="min-h-screen flex items-center justify-center px-4 py-20">
+  <div class="about-container">
+    <h2 class="text-4xl font-bold mb-12 text-center">About Me</h2>
+    
+    <main class="card-grid">
+      <div class="card clickable-card" data-url="https://github.com/YOUR_USERNAME">
+        <div class="card-bg" style="background-image: url('/images/nav_boxes/github.png')"></div>
+        <pixel-canvas></pixel-canvas>
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentcolor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        <button>GitHub</button>
+      </div>
+    
+      <div class="card clickable-card" style="--active-color: #0077b5" data-url="https://linkedin.com/in/YOUR_USERNAME">
+        <div class="card-bg" style="background-image: url('/images/nav_boxes/linkedin_profile.png')"></div>
+        <pixel-canvas data-gap="10" data-speed="25" data-colors="#0077b5, #00a0dc, #0077b5"></pixel-canvas>
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentcolor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        <button>LinkedIn</button>
+      </div>
+    
+      <div class="card clickable-card" style="--active-color: #ffa116" data-url="https://leetcode.com/YOUR_USERNAME">
+        <div class="card-bg" style="background-image: url('/images/nav_boxes/leetcode.png')"></div>
+        <pixel-canvas data-gap="3" data-speed="20" data-colors="#ffa116, #ffc01e, #ffa116"></pixel-canvas>
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentcolor" viewBox="0 0 24 24">
+          <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+        </svg>
+        <button>LeetCode</button>
+      </div>
+    
+      <div class="card clickable-card" style="--active-color: #10b981" data-url="/resume.pdf">
+        <div class="card-bg" style="background-image: url('/images/nav_boxes/resume.png')"></div>
+        <pixel-canvas data-gap="6" data-speed="80" data-colors="#10b981, #34d399, #059669" data-no-focus></pixel-canvas>
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentcolor" viewBox="0 0 24 24">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+          <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="white" stroke-width="0.5" fill="none"/>
+        </svg>
+        <button>Resume</button>
+      </div>
+    </main>
+  </div>
+</section>
+
+<style>
+  .about-container {
+    max-width: 1400px;
+    width: 100%;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    margin: auto;
+    max-width: 750px;
+    background: 
+      linear-gradient(to right, transparent calc(50% - 0.5px), #27272a calc(50% - 0.5px), #27272a calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+      linear-gradient(to bottom, transparent calc(50% - 0.5px), #27272a calc(50% - 0.5px), #27272a calc(50% + 0.5px), transparent calc(50% + 0.5px));
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: "card";
+    place-items: center;
+    aspect-ratio: 1/1;
+    border: 1px solid #27272a;
+    isolation: isolate;
+    transition: border-color 200ms cubic-bezier(0.5, 1, 0.89, 1);
+    user-select: none;
+  }
+
+  .clickable-card {
+    cursor: pointer;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at bottom left,
+      transparent 55%,
+      #101012
+    );
+    pointer-events: none;
+    box-shadow: #09090b -0.5cqi 0.5cqi 2.5cqi inset;
+    transition: opacity 900ms cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, #09090b, transparent 65%);
+    opacity: 0;
+    transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  .card > * {
+    grid-area: card;
+  }
+
+  .card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  .card:where(:hover, :focus-within) .card-bg {
+    opacity: 1;
+  }
+
+  .card svg {
+    position: relative;
+    z-index: 1;
+    width: 30%;
+    height: auto;
+    color: #52525b;
+    transition: 300ms cubic-bezier(0.5, 1, 0.89, 1);
+    transition-property: color, scale;
+  }
+
+  .card button {
+    opacity: 0;
+  }
+
+  .card:focus-within {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  .card:where(:hover, :focus-within) {
+    border-color: var(--active-color, #e3e3e3);
+    transition: border-color 800ms cubic-bezier(0.45, 0, 0.55, 1);
+  }
+
+  .card:where(:hover, :focus-within) svg {
+    color: var(--active-color, #e3e3e3);
+    scale: 1.1;
+    transition: 300ms cubic-bezier(0.45, 0, 0.55, 1);
+  }
+
+  .card:where(:hover, :focus-within)::before {
+    opacity: 0;
+  }
+
+  .card:where(:hover, :focus-within)::after {
+    opacity: 1;
+  }
+</style>
+
+<script>
+class Pixel {
+  constructor(canvas, context, x, y, color, speed, delay) {
+    this.width = canvas.width;
+    this.height = canvas.height;
+    this.ctx = context;
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.speed = this.getRandomValue(0.1, 0.9) * speed;
+    this.size = 0;
+    this.sizeStep = Math.random() * 0.4;
+    this.minSize = 0.5;
+    this.maxSizeInteger = 2;
+    this.maxSize = this.getRandomValue(this.minSize, this.maxSizeInteger);
+    this.delay = delay;
+    this.counter = 0;
+    this.counterStep = Math.random() * 4 + (this.width + this.height) * 0.01;
+    this.isIdle = false;
+    this.isReverse = false;
+    this.isShimmer = false;
+  }
+
+  getRandomValue(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  draw() {
+    const centerOffset = this.maxSizeInteger * 0.5 - this.size * 0.5;
+
+    this.ctx.fillStyle = this.color;
+    this.ctx.fillRect(
+      this.x + centerOffset,
+      this.y + centerOffset,
+      this.size,
+      this.size
+    );
+  }
+
+  appear() {
+    this.isIdle = false;
+
+    if (this.counter <= this.delay) {
+      this.counter += this.counterStep;
+      return;
+    }
+
+    if (this.size >= this.maxSize) {
+      this.isShimmer = true;
+    }
+
+    if (this.isShimmer) {
+      this.shimmer();
+    } else {
+      this.size += this.sizeStep;
+    }
+
+    this.draw();
+  }
+
+  disappear() {
+    this.isShimmer = false;
+    this.counter = 0;
+
+    if (this.size <= 0) {
+      this.isIdle = true;
+      return;
+    } else {
+      this.size -= 0.1;
+    }
+
+    this.draw();
+  }
+
+  shimmer() {
+    if (this.size >= this.maxSize) {
+      this.isReverse = true;
+    } else if (this.size <= this.minSize) {
+      this.isReverse = false;
+    }
+
+    if (this.isReverse) {
+      this.size -= this.speed;
+    } else {
+      this.size += this.speed;
+    }
+  }
+}
+
+class PixelCanvas extends HTMLElement {
+  static register(tag = "pixel-canvas") {
+    if ("customElements" in window) {
+      customElements.define(tag, this);
+    }
+  }
+
+  static css = `
+    :host {
+      display: grid;
+      inline-size: 100%;
+      block-size: 100%;
+      overflow: hidden;
+    }
+  `;
+
+  get colors() {
+    return this.dataset.colors?.split(",") || ["#f8fafc", "#f1f5f9", "#cbd5e1"];
+  }
+
+  get gap() {
+    const value = this.dataset.gap || 5;
+    const min = 4;
+    const max = 50;
+
+    if (value <= min) {
+      return min;
+    } else if (value >= max) {
+      return max;
+    } else {
+      return parseInt(value);
+    }
+  }
+
+  get speed() {
+    const value = this.dataset.speed || 35;
+    const min = 0;
+    const max = 100;
+    const throttle = 0.001;
+
+    if (value <= min || this.reducedMotion) {
+      return min;
+    } else if (value >= max) {
+      return max * throttle;
+    } else {
+      return parseInt(value) * throttle;
+    }
+  }
+
+  get noFocus() {
+    return this.hasAttribute("data-no-focus");
+  }
+
+  connectedCallback() {
+    const canvas = document.createElement("canvas");
+    const sheet = new CSSStyleSheet();
+
+    this._parent = this.parentNode;
+    this.shadowroot = this.attachShadow({ mode: "open" });
+
+    sheet.replaceSync(PixelCanvas.css);
+
+    this.shadowroot.adoptedStyleSheets = [sheet];
+    this.shadowroot.append(canvas);
+    this.canvas = this.shadowroot.querySelector("canvas");
+    this.ctx = this.canvas.getContext("2d");
+    this.timeInterval = 1000 / 60;
+    this.timePrevious = performance.now();
+    this.reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    this.init();
+    this.resizeObserver = new ResizeObserver(() => this.init());
+    this.resizeObserver.observe(this);
+
+    this._parent.addEventListener("mouseenter", this);
+    this._parent.addEventListener("mouseleave", this);
+
+    if (!this.noFocus) {
+      this._parent.addEventListener("focusin", this);
+      this._parent.addEventListener("focusout", this);
+    }
+  }
+
+  disconnectedCallback() {
+    this.resizeObserver.disconnect();
+    this._parent.removeEventListener("mouseenter", this);
+    this._parent.removeEventListener("mouseleave", this);
+
+    if (!this.noFocus) {
+      this._parent.removeEventListener("focusin", this);
+      this._parent.removeEventListener("focusout", this);
+    }
+
+    delete this._parent;
+  }
+
+  handleEvent(event) {
+    this[`on${event.type}`](event);
+  }
+
+  onmouseenter() {
+    this.handleAnimation("appear");
+  }
+
+  onmouseleave() {
+    this.handleAnimation("disappear");
+  }
+
+  onfocusin(e) {
+    if (e.currentTarget.contains(e.relatedTarget)) return;
+    this.handleAnimation("appear");
+  }
+
+  onfocusout(e) {
+    if (e.currentTarget.contains(e.relatedTarget)) return;
+    this.handleAnimation("disappear");
+  }
+
+  handleAnimation(name) {
+    cancelAnimationFrame(this.animation);
+    this.animation = this.animate(name);
+  }
+
+  init() {
+    const rect = this.getBoundingClientRect();
+    const width = Math.floor(rect.width);
+    const height = Math.floor(rect.height);
+
+    this.pixels = [];
+    this.canvas.width = width;
+    this.canvas.height = height;
+    this.canvas.style.width = `${width}px`;
+    this.canvas.style.height = `${height}px`;
+    this.createPixels();
+  }
+
+  getDistanceToCanvasCenter(x, y) {
+    const dx = x - this.canvas.width / 2;
+    const dy = y - this.canvas.height / 2;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    return distance;
+  }
+
+  createPixels() {
+    for (let x = 0; x < this.canvas.width; x += this.gap) {
+      for (let y = 0; y < this.canvas.height; y += this.gap) {
+        const color = this.colors[
+          Math.floor(Math.random() * this.colors.length)
+        ];
+        const delay = this.reducedMotion
+          ? 0
+          : this.getDistanceToCanvasCenter(x, y);
+
+        this.pixels.push(
+          new Pixel(this.canvas, this.ctx, x, y, color, this.speed, delay)
+        );
+      }
+    }
+  }
+
+  animate(fnName) {
+    this.animation = requestAnimationFrame(() => this.animate(fnName));
+
+    const timeNow = performance.now();
+    const timePassed = timeNow - this.timePrevious;
+
+    if (timePassed < this.timeInterval) return;
+
+    this.timePrevious = timeNow - (timePassed % this.timeInterval);
+
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    for (let i = 0; i < this.pixels.length; i++) {
+      this.pixels[i][fnName]();
+    }
+
+    if (this.pixels.every((pixel) => pixel.isIdle)) {
+      cancelAnimationFrame(this.animation);
+    }
+  }
+}
+
+PixelCanvas.register();
+
+// Add click handlers to navigate to URLs
+document.querySelectorAll('.clickable-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const url = card.dataset.url;
+    if (url) {
+      window.open(url, '_blank');
+    }
+  });
+});
+</script>
+
