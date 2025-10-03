@@ -321,12 +321,15 @@ src/pages/
   * Responsive design: 3 columns → 2 columns (tablet) → 1 column (mobile)
   * Interactive skill-based filtering system:
     - Skill tags are clickable buttons with proper cursor and accessibility
-    - Clicking a skill filters projects to show matching ones first
+    - Multi-select filtering: multiple skills can be active simultaneously
+    - Projects shown only if they match ALL of the selected skills (AND logic)
     - Non-matching projects get 30% opacity + 100% grayscale filter
     - Filtered projects reordered using CSS order property (matching: order 0, non-matching: order 1)
-    - Active skill tag highlighted in purple background
-    - Click same skill again to toggle off filter
-    - "Clear Filter" button appears when filter is active
+    - Active skill tags highlighted in purple background
+    - Click skill again to deselect (toggle behavior)
+    - Unselecting a skill updates filter to show projects with remaining selected skills
+    - "Clear Filter" button appears when any filter is active, clears all selections
     - Smooth 0.5s transitions on all filter effects
     - Projects wrapped in data-tags attribute for filtering logic
+    - Uses Set data structure to track active skills
 
