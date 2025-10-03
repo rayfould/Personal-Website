@@ -3,7 +3,7 @@
     <h2 class="section-title">My Journey</h2>
     
     <div class="timeline">
-      <div class="timeline-item left">
+      <div class="timeline-item left" data-timeline-animate data-color="orange">
         <div class="timeline-content">
           <h3>Started at Virginia Tech</h3>
           <p class="date">August 2022</p>
@@ -12,7 +12,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-item right" data-timeline-animate data-color="red">
         <div class="timeline-content">
           <h3>Transferred to Boston University</h3>
           <p class="date">January 2024</p>
@@ -21,7 +21,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item left">
+      <div class="timeline-item left" data-timeline-animate data-color="pink">
         <div class="timeline-content">
           <h3>Built Ventaura</h3>
           <p class="date">Fall 2024</p>
@@ -30,7 +30,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-item right" data-timeline-animate data-color="green">
         <div class="timeline-content">
           <h3>Created Muse</h3>
           <p class="date">Spring 2025</p>
@@ -39,7 +39,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item left">
+      <div class="timeline-item left" data-timeline-animate data-color="blue">
         <div class="timeline-content">
           <h3>Lawyer.com Internship</h3>
           <p class="date">May - August 2025</p>
@@ -48,7 +48,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-item right" data-timeline-animate data-color="blue">
         <div class="timeline-content">
           <h3>Consultant at Lawyer.com</h3>
           <p class="date">August 2025 - Present</p>
@@ -57,7 +57,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item left">
+      <div class="timeline-item left" data-timeline-animate data-color="red">
         <div class="timeline-content">
           <h3>Started CourseBranch</h3>
           <p class="date">Fall 2025</p>
@@ -66,7 +66,7 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item right">
+      <div class="timeline-item right" data-timeline-animate data-color="purple">
         <div class="timeline-content">
           <h3>Built Portfolio Website</h3>
           <p class="date">October 2025</p>
@@ -119,6 +119,14 @@
     margin-bottom: 4rem;
     display: flex;
     align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .timeline-item.left {
@@ -129,6 +137,14 @@
     justify-content: flex-start;
   }
 
+  .timeline-item.left:not(.visible) .timeline-content {
+    transform: translateX(-50px);
+  }
+
+  .timeline-item.right:not(.visible) .timeline-content {
+    transform: translateX(50px);
+  }
+
   .timeline-content {
     width: 48%;
     background-color: #1a1a1a;
@@ -136,6 +152,164 @@
     border-radius: 8px;
     border: 1px solid #333;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .timeline-item.left .timeline-content:hover {
+    transform: translateX(30px) scale(1.03);
+  }
+
+  .timeline-item.right .timeline-content:hover {
+    transform: translateX(-30px) scale(1.03);
+  }
+
+  .timeline-content:hover {
+    background-color: #252525;
+  }
+
+  /* Color-specific hover effects */
+  .timeline-item[data-color="orange"] .timeline-content:hover {
+    border-color: #ff8c42;
+    box-shadow: 0 8px 30px rgba(255, 140, 66, 0.3);
+  }
+
+  .timeline-item[data-color="orange"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #ff8c42;
+    box-shadow: 0 0 25px rgba(255, 140, 66, 0.8);
+  }
+
+  .timeline-item[data-color="orange"] .timeline-content:hover h3 {
+    color: #ff8c42;
+  }
+
+  .timeline-item[data-color="orange"] .timeline-content:hover .date {
+    color: #ffb380;
+  }
+
+  .timeline-item[data-color="red"] .timeline-content:hover {
+    border-color: #ff0040;
+    box-shadow: 0 8px 30px rgba(255, 0, 64, 0.3);
+  }
+
+  .timeline-item[data-color="red"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #ff0040;
+    box-shadow: 0 0 25px rgba(255, 0, 64, 0.8);
+  }
+
+  .timeline-item[data-color="red"] .timeline-content:hover h3 {
+    color: #ff0040;
+  }
+
+  .timeline-item[data-color="red"] .timeline-content:hover .date {
+    color: #ff6690;
+  }
+
+  .timeline-item[data-color="blue"] .timeline-content:hover {
+    border-color: #0099ff;
+    box-shadow: 0 8px 30px rgba(0, 153, 255, 0.4);
+  }
+
+  .timeline-item[data-color="blue"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #0099ff;
+    box-shadow: 0 0 25px rgba(0, 153, 255, 0.8);
+  }
+
+  .timeline-item[data-color="blue"] .timeline-content:hover h3 {
+    color: #0099ff;
+  }
+
+  .timeline-item[data-color="blue"] .timeline-content:hover .date {
+    color: #66ccff;
+  }
+
+  .timeline-item[data-color="green"] .timeline-content:hover {
+    border-color:rgb(74, 204, 161);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.3);
+  }
+
+  .timeline-item[data-color="green"] .timeline-content:hover ~ .timeline-dot {
+    background-color: rgb(74, 204, 161);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+  }
+
+  .timeline-item[data-color="green"] .timeline-content:hover h3 {
+    color:rgb(74, 204, 161);
+  }
+
+  .timeline-item[data-color="green"] .timeline-content:hover .date {
+    color: #6ee7b7;
+  }
+
+  .timeline-item[data-color="yellow"] .timeline-content:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 8px 30px rgba(251, 191, 36, 0.3);
+  }
+
+  .timeline-item[data-color="yellow"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #fbbf24;
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.8);
+  }
+
+  .timeline-item[data-color="yellow"] .timeline-content:hover h3 {
+    color: #fbbf24;
+  }
+
+  .timeline-item[data-color="yellow"] .timeline-content:hover .date {
+    color: #fde68a;
+  }
+
+  .timeline-item[data-color="purple"] .timeline-content:hover {
+    border-color: rgb(153, 82, 228);
+    box-shadow: 0 8px 30px rgba(153, 82, 228, 0.3);
+  }
+
+  .timeline-item[data-color="purple"] .timeline-content:hover ~ .timeline-dot {
+    background-color: rgb(153, 82, 228);
+    box-shadow: 0 0 25px rgba(153, 82, 228, 0.8);
+  }
+
+  .timeline-item[data-color="purple"] .timeline-content:hover h3 {
+    color: rgb(153, 82, 228);
+  }
+
+  .timeline-item[data-color="purple"] .timeline-content:hover .date {
+    color: rgb(200, 150, 255);
+  }
+
+  .timeline-item[data-color="cyan"] .timeline-content:hover {
+    border-color: #06b6d4;
+    box-shadow: 0 8px 30px rgba(6, 182, 212, 0.3);
+  }
+
+  .timeline-item[data-color="cyan"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #06b6d4;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.8);
+  }
+
+  .timeline-item[data-color="cyan"] .timeline-content:hover h3 {
+    color: #06b6d4;
+  }
+
+  .timeline-item[data-color="cyan"] .timeline-content:hover .date {
+    color: #67e8f9;
+  }
+
+  .timeline-item[data-color="pink"] .timeline-content:hover {
+    border-color: #ec4899;
+    box-shadow: 0 8px 30px rgba(236, 72, 153, 0.3);
+  }
+
+  .timeline-item[data-color="pink"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #ec4899;
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.8);
+  }
+
+  .timeline-item[data-color="pink"] .timeline-content:hover h3 {
+    color: #ec4899;
+  }
+
+  .timeline-item[data-color="pink"] .timeline-content:hover .date {
+    color: #f9a8d4;
   }
 
   .timeline-item.left .timeline-content {
@@ -153,12 +327,14 @@
     font-weight: 600;
     margin: 0 0 0.75rem 0;
     color: white;
+    transition: color 0.3s ease;
   }
 
   .date {
     font-size: 1rem;
     color: #888;
     margin: 0 0 1rem 0;
+    transition: color 0.3s ease;
   }
 
   .description {
@@ -176,8 +352,19 @@
     background-color: #666;
     border: 3px solid #1a1a1a;
     border-radius: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0);
     z-index: 2;
+    transition: all 0.5s ease;
+  }
+
+  .timeline-item.visible .timeline-dot {
+    transform: translateX(-50%) scale(1);
+    background-color: rgb(125, 123, 126);
+    box-shadow: 0 0 15px rgba(127, 122, 131, 0.6);
+  }
+
+  .timeline-content:hover ~ .timeline-dot {
+    transform: translateX(-50%) scale(1.3);
   }
 
   @media (max-width: 768px) {
@@ -196,9 +383,48 @@
       text-align: left !important;
     }
 
+    .timeline-item.left .timeline-content:hover,
+    .timeline-item.right .timeline-content:hover {
+      transform: scale(1.02);
+    }
+
     .timeline-dot {
       left: 20px;
     }
+
+    .timeline-item.visible .timeline-dot {
+      transform: scale(1);
+    }
+
+    .timeline-item:hover .timeline-dot {
+      transform: scale(1.3);
+    }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const timelineItems = document.querySelectorAll('[data-timeline-animate]');
+
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, observerOptions);
+
+    timelineItems.forEach((item) => {
+      observer.observe(item);
+    });
+  });
+</script>
+
 
