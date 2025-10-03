@@ -234,14 +234,30 @@
   }
 
   @media (max-width: 900px) {
-    .education-layout {
+    .education-layout,
+    .education-layout.reverse {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+
+    /* Reset reverse layout order on mobile */
+    .education-layout.reverse .image-column {
+      order: 0;
+    }
+
+    .education-layout.reverse .text-column {
+      order: 0;
+      border-right: none;
+      border-left: 2px solid #444;
     }
 
     .image-column {
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    .text-column {
+      border-left: 2px solid #444;
     }
   }
 
@@ -253,6 +269,10 @@
     .section-title {
       font-size: 2rem;
       margin-bottom: 2rem;
+    }
+
+    .text-column {
+      padding: 1.5rem;
     }
 
     .text-column h3 {

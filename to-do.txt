@@ -652,6 +652,9 @@ src/styles/globals.css
 - [DONE] TimelineSection: Vertical stack layout from left side, reduced font sizes
 - [DONE] AboutMeSection: Single column card grid, 2rem gap instead of 5rem
 - [DONE] EducationSection: Smaller headings and text, reduced padding
+- [DONE] EducationSection: Reset reverse layout order (BU entry) - both entries now stack consistently
+- [DONE] EducationSection: Fixed specificity issue - explicitly set single column for .reverse layout
+- [DONE] EducationSection: Fixed border inconsistency - all text-columns have left border on mobile
 - [DONE] ReachOutSection: Single column layout, reduced font sizes and padding
 - [DONE] All sections: Consistent 2rem 1rem padding on mobile (< 768px)
 - [DONE] All section titles: Reduced to 2rem font size on mobile
