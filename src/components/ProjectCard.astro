@@ -266,6 +266,39 @@ const imageScale = project.imageScale ?? 1.0;
     position: relative;
     z-index: 2;
   }
+
+  /* Mobile: Show overlay by default */
+  @media (max-width: 768px) {
+    .project-hover-overlay {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      position: relative;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+    }
+
+    .project-card:active {
+      transform: scale(0.98);
+    }
+
+    .cursor-glow {
+      display: none;
+    }
+
+    .project-content {
+      padding: 1rem;
+    }
+
+    .project-links {
+      flex-direction: column;
+    }
+
+    .project-link {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+  }
 </style>
 
 <script>

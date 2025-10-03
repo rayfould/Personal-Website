@@ -282,6 +282,25 @@
     .text-column p {
       font-size: 1rem;
     }
+
+    /* Show logos and effects by default on mobile */
+    .image-column {
+      cursor: auto;
+    }
+
+    .school-logo {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Active state for mobile touch */
+    .image-column:active {
+      transform: scale(1.02);
+    }
   }
 </style>
 

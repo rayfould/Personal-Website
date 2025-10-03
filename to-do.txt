@@ -677,5 +677,20 @@ src/styles/globals.css
 - [DONE] Ensured 1rem minimum spacing on each side via HomeSection .content padding
 - [DONE] Set right-column to width: 100% with padding: 0 on mobile
 
+**Mobile Touch & Clickability Fixes:**
+- [DONE] **ROOT CAUSE FIX #1**: HomeSection position: absolute → relative on mobile
+- [DONE] **ROOT CAUSE FIX #2**: Navigation mobile-overlay pointer-events: none when inactive
+- [DONE] **ROOT CAUSE FIX #2**: Navigation mobile-overlay pointer-events: auto only when active
+- [DONE] Fixed HomeSection covering all other sections and blocking clicks
+- [DONE] Fixed mobile-overlay covering entire screen at 768px and blocking ALL clicks
+- [DONE] ProjectCard: Show progress and links by default (overlay always visible)
+- [DONE] ProjectCard: Changed overlay to relative positioning on mobile
+- [DONE] ProjectCard: Disabled cursor-glow effect on mobile
+- [DONE] ProjectCard: Stack links vertically with larger touch targets
+- [DONE] ProjectCard: Added :active scale feedback (0.98)
+- [DONE] EducationSection: Show school logos by default on mobile
+- [DONE] EducationSection: Reduced overlay darkness (75% → 30%)
+- [DONE] EducationSection: Added :active touch feedback (scale 1.02)
+
 ================================================================================
 
