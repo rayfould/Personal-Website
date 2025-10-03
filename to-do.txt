@@ -201,6 +201,13 @@ README.md, to-do.txt
 - Accessibility features: focus states and reduced motion support
 - Square aspect ratio (1:1) cards with max-width 750px grid container
 - Thin cross dividers using linear gradients on grid background
+- Click handlers on all cards to navigate to external links (opens in new tab)
+- Cursor changes to pointer on hover to indicate clickability
+- All URLs configured with real profile links:
+  * GitHub: https://github.com/rayfould
+  * LinkedIn: https://www.linkedin.com/in/rudolf-rissling/
+  * LeetCode: https://leetcode.com/u/Rayfould/
+  * Resume: /files/Rudolf Rissling Resume (CS).pdf
 
 ### FILES CREATED
 ```
