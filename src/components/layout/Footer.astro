@@ -19,7 +19,9 @@ const currentYear = new Date().getFullYear();
   </div>
   
   <div class="giant-text-container">
-    <h1 class="giant-text">>RDY_</h1>
+    <h1 class="giant-text">
+      <span class="char">></span><span class="char">R</span><span class="char">D</span><span class="char">Y</span><span class="char">_</span>
+    </h1>
   </div>
 </footer>
 
@@ -64,12 +66,25 @@ const currentYear = new Date().getFullYear();
     color: #fff;
     margin: 0;
     padding: 0;
-    letter-spacing: 0.5em;
     line-height: 1;
     user-select: none;
     white-space: nowrap;
     text-align: center;
-    text-indent: .5em;
+    display: flex;
+    justify-content: center;
+    gap: 0.3em;
+  }
+
+  .char {
+    display: inline-block;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }
+
+  .char:hover {
+    color: rgb(153, 82, 228);
   }
 
   .footer-section {
