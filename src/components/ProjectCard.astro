@@ -12,6 +12,9 @@ const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent
 
 <div class="project-card" data-cursor-glow>
   <div class="cursor-glow"></div>
+  {project.confidential && (
+    <div class="confidential-badge">REDACTED</div>
+  )}
   <div class="project-image">
     {project.image ? (
       <img src={project.image} alt={project.title} />
@@ -73,6 +76,21 @@ const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent
     transform: translateY(-4px);
     border-color: #666;
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  .confidential-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: #dc2626;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
   }
 
   .project-image {
