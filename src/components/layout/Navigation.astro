@@ -4,12 +4,12 @@ const navItems = [
   { href: '#projects', label: 'Projects' },
   { href: '#timeline', label: 'Timeline' },
   { href: '#education', label: 'Education' },
+  { href: '#about', label: 'About Me' },
   { href: '#reach-out', label: 'Reach Out' },
 ];
 ---
 
-<nav>
-  <a href="#home">Portfolio</a>
+<nav id="main-nav">
   <ul>
     {navItems.map((item) => (
       <li>
@@ -18,4 +18,106 @@ const navItems = [
     ))}
   </ul>
 </nav>
+
+<style>
+  nav {
+    position: absolute;
+    top: 80vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(23, 22, 22, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    transition: border-color 0.3s;
+  }
+
+  nav.stuck {
+    border-color: #27272a;
+  }
+
+  ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    position: relative;
+  }
+
+  a {
+    color: #e3e3e3;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    display: block;
+    white-space: nowrap;
+  }
+
+  a:hover {
+    color: #a855f7;
+  }
+
+  a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+</style>
+
+<script>
+  // Make nav sticky once it reaches the top
+  const nav = document.getElementById('main-nav');
+  const navOffset = nav?.offsetTop || 0;
+
+  window.addEventListener('scroll', () => {
+    if (nav) {
+      if (window.scrollY >= navOffset) {
+        nav.style.position = 'fixed';
+        nav.style.top = '1rem';
+        nav.classList.add('stuck');
+      } else {
+        nav.style.position = 'absolute';
+        nav.style.top = '80vh';
+        nav.classList.remove('stuck');
+      }
+    }
+  });
+
+  // Track active section
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  function setActiveLink() {
+    let currentSection = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (window.scrollY >= sectionTop - 200) {
+        currentSection = section.getAttribute('id') || '';
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', setActiveLink);
+  window.addEventListener('load', setActiveLink);
+</script>
 
