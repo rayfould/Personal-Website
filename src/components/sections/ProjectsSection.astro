@@ -255,3 +255,82 @@ const skillIcons: Record<string, string> = {
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const skillTags = document.querySelectorAll('.skill-tag');
+    const projectWrappers = document.querySelectorAll('.project-wrapper');
+    const clearFilterBtn = document.getElementById('clear-filter');
+    let activeSkill: string | null = null;
+
+    function filterProjects(skill: string) {
+      activeSkill = skill;
+
+      // Update active state on skill tags
+      skillTags.forEach(tag => {
+        if (tag.getAttribute('data-skill') === skill) {
+          tag.classList.add('active');
+        } else {
+          tag.classList.remove('active');
+        }
+      });
+
+      // Filter and reorder projects
+      projectWrappers.forEach(wrapper => {
+        const tags = wrapper.getAttribute('data-tags')?.split(',') || [];
+        const hasSkill = tags.includes(skill);
+
+        if (hasSkill) {
+          wrapper.classList.remove('filtered-out');
+        } else {
+          wrapper.classList.add('filtered-out');
+        }
+      });
+
+      // Show clear filter button
+      if (clearFilterBtn) {
+        clearFilterBtn.style.display = 'block';
+      }
+    }
+
+    function clearFilter() {
+      activeSkill = null;
+
+      // Remove active state from all skill tags
+      skillTags.forEach(tag => {
+        tag.classList.remove('active');
+      });
+
+      // Remove filter from all projects
+      projectWrappers.forEach(wrapper => {
+        wrapper.classList.remove('filtered-out');
+      });
+
+      // Hide clear filter button
+      if (clearFilterBtn) {
+        clearFilterBtn.style.display = 'none';
+      }
+    }
+
+    // Add click handlers to skill tags
+    skillTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        const skill = tag.getAttribute('data-skill');
+        if (skill) {
+          if (activeSkill === skill) {
+            // If clicking the same skill, clear filter
+            clearFilter();
+          } else {
+            // Otherwise, filter by this skill
+            filterProjects(skill);
+          }
+        }
+      });
+    });
+
+    // Add click handler to clear filter button
+    if (clearFilterBtn) {
+      clearFilterBtn.addEventListener('click', clearFilter);
+    }
+  });
+</script>

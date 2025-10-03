@@ -319,4 +319,14 @@ src/pages/
     - Reduced title font size from 1.5rem to 1.25rem
     - Card gap remains 1.5rem
   * Responsive design: 3 columns → 2 columns (tablet) → 1 column (mobile)
+  * Interactive skill-based filtering system:
+    - Skill tags are clickable buttons with proper cursor and accessibility
+    - Clicking a skill filters projects to show matching ones first
+    - Non-matching projects get 30% opacity + 100% grayscale filter
+    - Filtered projects reordered using CSS order property (matching: order 0, non-matching: order 1)
+    - Active skill tag highlighted in purple background
+    - Click same skill again to toggle off filter
+    - "Clear Filter" button appears when filter is active
+    - Smooth 0.5s transitions on all filter effects
+    - Projects wrapped in data-tags attribute for filtering logic
 
