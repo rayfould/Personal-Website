@@ -1,6 +1,7 @@
 ---
 import '../styles/globals.css';
 import Navigation from '@/components/layout/Navigation.astro';
+import Footer from '@/components/layout/Footer.astro';
 import HomeSection from '@/components/sections/HomeSection.astro';
 import ProjectsSection from '@/components/sections/ProjectsSection.astro';
 import TimelineSection from '@/components/sections/TimelineSection.astro';
@@ -16,7 +17,7 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
     <title>Rudolf Rissling - Portfolio</title>
     <link rel="icon" type="image/png" href="/images/logo/rudy_logo_small_top.png" />
   </head>
-  <body>
+  <body style="margin: 0; padding: 0;">
     <a href="#home" class="portfolio-logo">
       <img src="/images/logo/rdy_logo_white.png" alt="Portfolio Logo" />
     </a>
@@ -31,6 +32,7 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
       <AboutMeSection />
       <ReachOutSection />
     </main>
+    <Footer />
   </body>
   
   <style>

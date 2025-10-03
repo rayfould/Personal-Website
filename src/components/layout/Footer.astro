@@ -1,0 +1,154 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <p class="copyright">© {currentYear} Rudolf Rissling. All rights reserved.</p>
+      <p class="tagline">Built with passion, energy drinks, and a lot of purple.</p>
+    </div>
+    
+    <div class="footer-links">
+      <a href="https://github.com/rayfould" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <span class="separator">•</span>
+      <a href="https://www.linkedin.com/in/rudolf-rissling/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <span class="separator">•</span>
+      <a href="https://leetcode.com/u/Rayfould/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+    </div>
+  </div>
+  
+  <div class="giant-text-container">
+    <h1 class="giant-text">>RDY_</h1>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: linear-gradient(to bottom, #111,#000, #000);
+    border-top: 1px solid #1a1a1a;
+    padding: 0;
+    margin-top: 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem 2rem;
+  }
+
+  .giant-text-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0;
+    padding-bottom: 2.5em;
+    margin-bottom: auto;
+  }
+
+  .giant-text {
+    font-size: 15rem;
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.5em;
+    line-height: 1;
+    user-select: none;
+    white-space: nowrap;
+    text-align: center;
+    text-indent: .5em;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .copyright {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .tagline {
+    color: #666;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: rgb(153, 82, 228);
+  }
+
+  .separator {
+    color: #444;
+    user-select: none;
+  }
+
+  @media (max-width: 1024px) {
+    .giant-text {
+      font-size: 10rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .giant-text-container {
+      padding: 3rem 1rem 1.5rem 1rem;
+    }
+
+    .giant-text {
+      font-size: 6rem;
+    }
+
+    .footer-content {
+      gap: 1.25rem;
+      padding: 1.5rem 1rem;
+    }
+
+    .copyright,
+    .footer-links a {
+      font-size: 0.85rem;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .giant-text {
+      font-size: 4rem;
+    }
+  }
+</style>
+
