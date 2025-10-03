@@ -3,10 +3,11 @@
     <h2 class="section-title">Education</h2>
     
     <div class="education-layout">
-      <div class="image-column" data-spotlight>
+      <div class="image-column orange-glow" data-spotlight>
         <img src="/images/virginia.jpg" alt="Virginia Tech" class="base-image" />
         <div class="overlay"></div>
         <div class="brightness-spot"></div>
+        <img src="/images/vt_logo.png" alt="Virginia Tech Logo" class="school-logo logo-bottom-right" />
       </div>
       
       <div class="text-column">
@@ -21,11 +22,12 @@
       </div>
     </div>
 
-    <div class="education-layout">
+    <div class="education-layout reverse">
       <div class="image-column" data-spotlight>
-        <img src="/images/bu4.webp" alt="Boston University" class="base-image" />
+        <img src="/images/bu5.jpg" alt="Boston University" class="base-image" />
         <div class="overlay"></div>
         <div class="brightness-spot"></div>
+        <img src="/images/bu_logo.png" alt="Boston University Logo" class="school-logo logo-bottom-left" />
       </div>
       
       <div class="text-column">
@@ -77,12 +79,18 @@
     margin-bottom: 0;
   }
 
-  .education-layout:nth-child(3) {
-    direction: rtl;
+  .education-layout.reverse {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .education-layout:nth-child(3) > * {
-    direction: ltr;
+  .education-layout.reverse .image-column {
+    order: 2;
+  }
+
+  .education-layout.reverse .text-column {
+    order: 1;
+    border-left: none;
+    border-right: 2px solid #444;
   }
 
   .image-column {
@@ -108,6 +116,15 @@
                 0 0 40px rgba(255, 0, 64, 0.4),
                 0 0 60px rgba(255, 0, 64, 0.2),
                 inset 0 0 20px rgba(255, 0, 64, 0.1);
+  }
+
+  .image-column.orange-glow:hover {
+    border-color: #ff8c42;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(255, 140, 66, 0.6),
+                0 0 40px rgba(255, 140, 66, 0.4),
+                0 0 60px rgba(255, 140, 66, 0.2),
+                inset 0 0 20px rgba(255, 140, 66, 0.1);
   }
 
   .base-image {
@@ -143,6 +160,32 @@
     opacity: 1;
   }
 
+  .school-logo {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 3;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    transform: scale(0.9);
+  }
+
+  .image-column:hover .school-logo {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .logo-bottom-right {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .logo-bottom-left {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+
   .text-column {
     color: white;
     padding: 2rem;
@@ -150,11 +193,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  .education-layout:nth-child(3) .text-column {
-    border-left: none;
-    border-right: 2px solid #444;
   }
 
   .text-column h3 {

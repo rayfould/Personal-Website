@@ -203,7 +203,12 @@ README.md, to-do.txt
 - [DONE] Added Virginia Tech as Master's program (2023 - Present)
 - [DONE] Updated spotlight script to handle multiple image sections
 - [DONE] Added spacing between education entries (5rem margin-bottom)
-- [DONE] Flipped Boston University section to have image on right using RTL direction
+- [DONE] Flipped Boston University section to have image on right using CSS order
+- [DONE] Added orange border/glow for Virginia Tech (instead of red)
+- [DONE] Added school logos that appear on hover
+- [DONE] Positioned VT logo in bottom right corner
+- [DONE] Positioned BU logo in bottom left corner
+- [DONE] Added fade-in and scale animation for logos on hover
 
 ### FILES CREATED
 - src/types/project.ts
