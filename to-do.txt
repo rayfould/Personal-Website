@@ -515,3 +515,42 @@ to-do.txt
 - Consider adding About Me section content refinements
 - Final polish and cross-browser testing
 
+### SESSION 4 ADDENDUM - Terminal Content & Skills Sync
+
+**Terminal Content Updates:**
+- Fixed education info: Bachelor's in Computer Science (not Master's) at Boston University
+- Updated about command with current consultant role at Lawyer.com
+- Updated education command with accurate timeline: VT (Aug 2022 - Jan 2024) → BU (Jan 2024 - May 2026)
+- Fixed projects command tech stacks to match actual projects.ts data:
+  * Portfolio: JavaScript, React, HTML/CSS, Astro, TypeScript, Tailwind CSS
+  * CourseBranch: React, Node.js, PostgreSQL, JavaScript, HTML/CSS
+  * Ventaura: C#, .NET Core, Python, React, PostgreSQL, PyTorch, FastAPI, Node.js, Supabase
+  * Muse: Kotlin, Jetpack Compose, PostgreSQL, Supabase
+  * QueryMind & Gmail: Python, FastAPI (SQL for QueryMind)
+
+**Skills List Synchronization:**
+- Removed unused skills from both terminal and ProjectsSection:
+  * Removed: Bootstrap, Flask, Oracle, Gradle
+- Added skills that are actually used in projects:
+  * Added: TypeScript, Supabase, Astro, Tailwind CSS
+- Updated skill icon color codes for new technologies:
+  * TypeScript: #3178C6
+  * Supabase: #3ECF8E
+  * Astro: #FF5D01
+  * Tailwind CSS: #06B6D4
+- Ensured all skills in terminal `/skills` command match ProjectsSection filter tags
+- Verified all project tags can be used for filtering (no orphaned skills)
+
+**Final Skill Categories:**
+- Languages (9): Java, C#, Python, JavaScript, TypeScript, HTML/CSS, SQL, OCaml, Kotlin
+- Frameworks & Libraries (8): .NET Core, React, JUnit, PyTorch, FastAPI, Node.js, Django, Jetpack Compose
+- Technologies & Tools (9): Git, Docker, Unix, PostgreSQL, Heroku, Vercel, Supabase, Astro, Tailwind CSS
+
+**Technical Notes:**
+- All terminal responses now accurately reflect real background and current status
+- Skills list perfectly synchronized between terminal, filter UI, and actual project tags
+- Filtering system now works correctly with all displayed skills
+- No orphaned or unused skills in the UI
+
+================================================================================
+
