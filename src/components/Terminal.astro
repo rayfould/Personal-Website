@@ -1,0 +1,293 @@
+---
+// Terminal component for interactive Q&A
+---
+
+<div class="terminal-window">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="btn close"></span>
+      <span class="btn minimize"></span>
+      <span class="btn maximize"></span>
+    </div>
+    <div class="terminal-title">rudy@portfolio:~</div>
+  </div>
+  <div class="terminal-body" id="terminal-body">
+    <div class="terminal-output" id="terminal-output">
+      <div class="welcome-message">Welcome! Ask me anything!</div>
+      <div class="hint">Type 'help' to see available commands</div>
+    </div>
+    <div class="terminal-input-line">
+      <span class="prompt">rudy@portfolio:~$</span>
+      <input 
+        type="text" 
+        id="terminal-input" 
+        class="terminal-input"
+        autocomplete="off"
+        spellcheck="false"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .terminal-window {
+    background-color: #0a0a0a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid #1a1a1a;
+    font-family: 'Courier New', Courier, monospace;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .terminal-header {
+    background-color: #1a1a1a;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .btn.close {
+    background-color: #ff5f56;
+  }
+
+  .btn.minimize {
+    background-color: #ffbd2e;
+  }
+
+  .btn.maximize {
+    background-color: #27c93f;
+  }
+
+  .terminal-title {
+    color: #666;
+    font-size: 0.875rem;
+    flex: 1;
+    text-align: center;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .terminal-output {
+    color: rgb(153, 82, 228);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .welcome-message {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+
+  .hint {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .prompt {
+    color: rgb(153, 82, 228);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: rgb(153, 82, 228);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    caret-color: rgb(153, 82, 228);
+  }
+
+  .command-line {
+    margin-bottom: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .command {
+    color: rgb(153, 82, 228);
+    font-weight: 600;
+  }
+
+  .response {
+    color: #e8e8e8;
+    margin-left: 0;
+    white-space: pre-wrap;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+
+  .error {
+    color: #ff6b6b;
+  }
+
+  /* Scrollbar styling */
+  .terminal-body::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .terminal-body::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  .terminal-body::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+  }
+
+  .terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>
+
+<script>
+  const commands = {
+    help: `Available commands:\n\nhelp      - Show this message\nabout     - Learn about me\nskills    - View my technical skills\nprojects  - See my featured projects\neducation - View my education background\ncontact   - Get my contact information\nclear     - Clear the terminal\n\nTry typing any command!`,
+
+    about: `Hi! I'm Rudy (Rudolf Rissling).\n\nI'm a passionate software engineer specializing in full-stack development, AI systems, and integration solutions.\n\nI love building elegant solutions to complex problems and am always excited to learn new technologies.\n\nCurrently seeking opportunities to apply my skills in innovative projects!`,
+
+    skills: `Technical Skills:\n\nLanguages:\n  Java, C#, Python, JavaScript, HTML/CSS, SQL, OCaml, Kotlin\n\nFrameworks & Libraries:\n  .NET Core, Flask, React, Bootstrap, JUnit, PyTorch, FastAPI, Node.js, Django\n\nTechnologies & Tools:\n  Git, Docker, Oracle, Gradle, Unix, PostgreSQL, Heroku, Vercel, Jetpack Compose`,
+
+    projects: `Featured Projects:\n\n1. E-Commerce Platform\n   Full-stack platform with real-time inventory and payment processing\n   Tech: React, Node.js, PostgreSQL\n\n2. AI Content Generator\n   ML-powered content creation using GPT models\n   Tech: Python, FastAPI, OpenAI, React\n\n3. Blockchain Wallet\n   Secure cryptocurrency wallet with multi-chain support\n   Tech: Solidity, Web3.js, React, Ethereum\n\nScroll down to the Projects section to see more!`,
+
+    education: `Education:\n\n🎓 Master of Science in Computer Science\n   Boston University (BU)\n\n🎓 Bachelor's Degree in Computer Science\n   Virginia Tech (VT)\n\nBoth institutions provided excellent foundations in software engineering, algorithms, and system design.`,
+
+    contact: `Contact Information:\n\n📧 Email: Available on LinkedIn\n\n💼 LinkedIn: linkedin.com/in/rudolf-rissling\n\n🐙 GitHub: github.com/rayfould\n\n💻 LeetCode: leetcode.com/u/Rayfould\n\n\nFeel free to reach out - I'm always happy to connect!`,
+
+    clear: '__CLEAR__',
+
+    // Easter eggs
+    sudo: `Nice try! But you don't have sudo privileges here. 😄`,
+    
+    'rm -rf /': `Error: Permission denied. Thankfully! 😅`,
+    
+    exit: `You can't escape that easily! Try 'clear' instead.`,
+    
+    whoami: `You are a curious visitor exploring Rudy's portfolio!`,
+    
+    ls: `projects/  education/  skills/  about.txt  contact.txt`,
+    
+    pwd: `/home/rudy/portfolio`,
+  };
+
+  const terminalBody = document.getElementById('terminal-body');
+  const terminalOutput = document.getElementById('terminal-output');
+  const terminalInput = document.getElementById('terminal-input') as HTMLInputElement;
+
+  let commandHistory: string[] = [];
+  let historyIndex = -1;
+
+  function addOutput(text: string, className: string = '') {
+    const div = document.createElement('div');
+    div.className = className;
+    div.innerText = text;
+    terminalOutput?.appendChild(div);
+    scrollToBottom();
+  }
+
+  function addCommand(command: string) {
+    const div = document.createElement('div');
+    div.className = 'command-line';
+    div.innerHTML = `<span class="prompt">rudy@portfolio:~$</span> <span class="command">${command}</span>`;
+    terminalOutput?.appendChild(div);
+  }
+
+  function scrollToBottom() {
+    if (terminalBody) {
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+  }
+
+  function processCommand(input: string) {
+    const command = input.trim().toLowerCase();
+    
+    if (!command) return;
+
+    // Add to history
+    commandHistory.push(input);
+    historyIndex = commandHistory.length;
+
+    // Display command
+    addCommand(input);
+
+    // Process command
+    if (command === 'clear') {
+      if (terminalOutput) {
+        terminalOutput.innerHTML = '';
+      }
+    } else if (commands[command]) {
+      addOutput(commands[command], 'response');
+    } else {
+      addOutput(`Command not found: ${command}. Type 'help' for available commands.`, 'response error');
+    }
+
+    // Clear input
+    if (terminalInput) {
+      terminalInput.value = '';
+    }
+  }
+
+  // Enter key handler
+  terminalInput?.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      processCommand(terminalInput.value);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        historyIndex--;
+        terminalInput.value = commandHistory[historyIndex];
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex < commandHistory.length - 1) {
+        historyIndex++;
+        terminalInput.value = commandHistory[historyIndex];
+      } else {
+        historyIndex = commandHistory.length;
+        terminalInput.value = '';
+      }
+    }
+  });
+
+  // Auto-focus input when clicking anywhere in terminal
+  terminalBody?.addEventListener('click', () => {
+    terminalInput?.focus();
+  });
+
+  // Focus input on load
+  terminalInput?.focus();
+</script>
+
