@@ -638,6 +638,7 @@ src/styles/globals.css
 - [DONE] Purple accent colors on hover matching site theme
 - [DONE] Smooth slide-in animation with cubic-bezier easing
 - [DONE] Adjusted button position (right: 3rem) and menu width (220px)
+- [DONE] Fixed visible border line bug: adjusted right position from -200px to -221px (width + border)
 
 **Horizontal Overflow Fix:**
 - [DONE] Added overflow-x: hidden to html and body elements
@@ -669,6 +670,8 @@ src/styles/globals.css
 - [DONE] Reduced terminal buttons: 12px → 10px (768px), 8px (480px)
 - [DONE] Reduced padding: 1rem → 0.75rem (768px), 0.5rem (480px)
 - [DONE] Reduced line-height for better density on small screens
+- [DONE] Ensured 1rem minimum spacing on each side via HomeSection .content padding
+- [DONE] Set right-column to width: 100% with padding: 0 on mobile
 
 ================================================================================
 
