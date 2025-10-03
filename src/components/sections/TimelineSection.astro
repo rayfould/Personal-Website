@@ -1,15 +1,186 @@
 <section id="timeline">
-  <div class="content">
-    <h2>Timeline</h2>
+  <div class="container">
+    <h2 class="section-title">My Journey</h2>
+    
+    <div class="timeline">
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Started University</h3>
+          <p class="date">September 2019</p>
+          <p class="description">Began my journey in Computer Science at Boston University</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>First Internship</h3>
+          <p class="date">Summer 2020</p>
+          <p class="description">Software engineering intern at Tech Company</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Research Assistant</h3>
+          <p class="date">Fall 2021</p>
+          <p class="description">Joined AI Lab working on machine learning projects</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Teaching Assistant</h3>
+          <p class="date">Spring 2022</p>
+          <p class="description">TA for Data Structures and Algorithms course</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Senior Year Project</h3>
+          <p class="date">Fall 2022</p>
+          <p class="description">Led team building distributed systems project</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Graduated</h3>
+          <p class="date">May 2023</p>
+          <p class="description">Bachelor of Science in Computer Science with Honors</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   section {
     min-height: 100vh;
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: white;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  /* Vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #444;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+  }
+
+  .timeline-item.left {
+    justify-content: flex-end;
+  }
+
+  .timeline-item.right {
+    justify-content: flex-start;
+  }
+
+  .timeline-content {
+    width: 48%;
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .timeline-item.left .timeline-content {
+    margin-right: 1%;
+    text-align: left;
+  }
+
+  .timeline-item.right .timeline-content {
+    margin-left: 1%;
+    text-align: right;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+    color: white;
+  }
+
+  .date {
+    font-size: 1rem;
+    color: #888;
+    margin: 0 0 1rem 0;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin: 0;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: #666;
+    border: 3px solid #1a1a1a;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item {
+      justify-content: flex-start !important;
+    }
+
+    .timeline-content {
+      width: calc(100% - 60px);
+      margin-left: 60px !important;
+      margin-right: 0 !important;
+      text-align: left !important;
+    }
+
+    .timeline-dot {
+      left: 20px;
+    }
   }
 </style>
 
