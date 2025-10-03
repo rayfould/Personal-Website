@@ -298,6 +298,26 @@ src/pages/
   * Hover effect changes opacity instead of color
   * Logo remains clickable and navigates to home section
   * Nav styling adjusted for single-line display (reduced gaps, padding, font size)
+- Home section redesign:
+  * Two-column layout (CSS Grid, 1.6fr 1fr - wider left column for long phrases)
+  * Layout positioned higher on page (margin-top: -8rem)
+  * Left column: Dynamic typing animation
+    - Text: "Hello, my name is Rudy, and I'm [a/an] [rotating title]"
+    - 7 rotating titles: Integration Engineer, Full-Stack Developer, AI Systems Architect, Project Lead, Computer Scientist, Problem Solver, The Best Candidate
+    - Dynamic article selection: automatically switches between "a", "an", or no article
+      - Vowel detection for "a" vs "an"
+      - Removes article completely for phrases starting with "The"
+    - Purple color for typed text and cursor (rgb(153, 82, 228))
+    - Blinking cursor animation (1s step-end infinite)
+    - Typing speed: 60ms per character
+    - Deletion speed: 30ms per character
+    - 2s pause at end of word
+    - 500ms pause before next word
+    - Infinite loop through all titles
+  * Right column: Reserved for terminal UI (to be implemented)
+  * Responsive: 2 columns → 1 column on tablet/mobile
+  * Font sizes: 3rem (desktop) → 2.5rem (tablet) → 2rem (mobile)
+  * Max width: 1400px with 2rem padding
 - Projects section styling:
   * Added 4rem top margin for spacing from home section
   * Applied dark gray background (#0a0a0a) to distinguish from black home section
