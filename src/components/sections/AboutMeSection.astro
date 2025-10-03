@@ -197,9 +197,24 @@
 
     .card-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
       max-width: 100%;
       background: none;
+    }
+
+    .card {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      max-width: 250px;
+    }
+
+    .card-grid {
+      gap: 1rem;
     }
   }
 </style>

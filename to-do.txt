@@ -652,6 +652,9 @@ src/styles/globals.css
 - [DONE] TimelineSection: Vertical stack layout from left side, reduced font sizes
 - [DONE] AboutMeSection: Single column card grid, 2rem gap instead of 5rem
 - [DONE] AboutMeSection: Removed cross dividers on mobile (background: none)
+- [DONE] AboutMeSection: Limited card size on mobile - max-width: 300px (768px), 250px (480px)
+- [DONE] AboutMeSection: Reduced gap on mobile - 1.5rem (768px), 1rem (480px)
+- [DONE] AboutMeSection: Centered cards with margin: 0 auto
 - [DONE] EducationSection: Smaller headings and text, reduced padding
 - [DONE] EducationSection: Reset reverse layout order (BU entry) - both entries now stack consistently
 - [DONE] EducationSection: Fixed specificity issue - explicitly set single column for .reverse layout
@@ -667,6 +670,13 @@ src/styles/globals.css
 - [DONE] Reduced character gaps: 0.3em → 0.1em (768px), 0.05em (480px), 0 (360px)
 - [DONE] Reduced container padding to 0.5rem/0.25rem on mobile
 - [DONE] Set container width: 100vw to enforce viewport constraint
+
+**Footer Height & Spacing Improvements:**
+- [DONE] Reduced footer height: 80vh → 50vh (desktop), 40vh (1024px), 35vh (768px)
+- [DONE] Increased letter spacing in giant text: gap 0.3em → 0.5em + letter-spacing 0.05em
+- [DONE] Adjusted gap per breakpoint: 0.5em (desktop), 0.4em (1024px), 0.2em (768px)
+- [DONE] Reduced container padding-bottom: 2.5em → 1.5rem
+- [DONE] Overall footer is ~40% shorter with better letter spacing
 
 **Terminal Component Responsive:**
 - [DONE] Reduced terminal height: 400px → 300px (768px), 250px (480px)
