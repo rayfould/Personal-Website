@@ -16,9 +16,14 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
     <title>Portfolio</title>
   </head>
   <body>
-    <Navigation />
-    <main>
+    <a href="#home" class="portfolio-logo">
+      <img src="/images/logo/rdy_logo_white.png" alt="Portfolio Logo" />
+    </a>
+    <div class="home-wrapper">
       <HomeSection />
+      <Navigation />
+    </div>
+    <main>
       <ProjectsSection />
       <TimelineSection />
       <EducationSection />
@@ -26,4 +31,29 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
       <ReachOutSection />
     </main>
   </body>
+  
+  <style>
+    .portfolio-logo {
+      position: fixed;
+      top: 1.5rem;
+      left: 1.5rem;
+      z-index: 9999;
+      transition: opacity 0.3s;
+    }
+
+    .portfolio-logo img {
+      height: 1.5rem;
+      width: auto;
+      display: block;
+    }
+
+    .portfolio-logo:hover {
+      opacity: 0.8;
+    }
+
+    .home-wrapper {
+      position: relative;
+      min-height: 110vh;
+    }
+  </style>
 </html>
