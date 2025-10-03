@@ -2,36 +2,6 @@ import type { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
-    id: 'portfolio-website',
-    title: 'Portfolio Website',
-    description: 'Modern, interactive portfolio built with Astro and React featuring dynamic typing animations, interactive terminal interface, skill-based project filtering, and custom pixel canvas components. Includes particle.js background effects, frosted glass UI elements, and responsive design across all breakpoints.',
-    tags: ['JavaScript', 'React', 'HTML/CSS', 'Astro', 'Git', 'Tailwind CSS', 'TypeScript'],
-    category: 'Web Development',
-    date: '2025-10',
-    status: 'in-progress',
-    featured: true,
-    progress: 95,
-    github: 'https://github.com/rayfould/Personal-Website',
-    link: 'https://rudolfrissling.com',
-    image: '/images/logo/rdy_logo_white.png',
-    imageScale: 0.6
-  },
-  {
-    id: 'coursebranch',
-    title: 'CourseBranch',
-    description: 'Visual course planning platform enabling students to track major progress and requirements through interactive tree diagrams. Features user reviews for courses and professors, prerequisite mapping, and semester planning tools. Makes course registration more intuitive with accessible progress visualization.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Git',],
-    category: 'Full-Stack Development',
-    date: '2024-09',
-    status: 'in-progress',
-    featured: true,
-    progress: 15,
-    github: 'https://github.com/rayfould/coursebranch',
-    link: 'https://coursebranch.com',
-    image: '/images/logo/CourseBranch_logo.png',
-    imageScale: 1.3
-  },
-  {
     id: 'ventaura',
     title: 'Ventaura',
     description: 'Personalized event recommendations platform built with C# backend integrating 5+ APIs, Python DDQL ranking algorithm, and React frontend. Led 3-developer team achieving 10,000+ daily requests with 45% faster data retrieval and sub-second ranking for 1,000+ events.',
@@ -87,6 +57,36 @@ export const projects: Project[] = [
     progress: 100,
     confidential: true,
     image: '/images/logo/gmail_logo.png',
+    imageScale: 0.6
+  },
+  {
+    id: 'coursebranch',
+    title: 'CourseBranch',
+    description: 'Visual course planning platform enabling students to track major progress and requirements through interactive tree diagrams. Features user reviews for courses and professors, prerequisite mapping, and semester planning tools. Makes course registration more intuitive with accessible progress visualization.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Git',],
+    category: 'Full-Stack Development',
+    date: '2024-09',
+    status: 'in-progress',
+    featured: true,
+    progress: 15,
+    github: 'https://github.com/rayfould/coursebranch',
+    link: 'https://coursebranch.com',
+    image: '/images/logo/CourseBranch_logo.png',
+    imageScale: 1.3
+  },
+  {
+    id: 'portfolio-website',
+    title: 'Portfolio Website',
+    description: 'Modern, interactive portfolio built with Astro and React featuring dynamic typing animations, interactive terminal interface, skill-based project filtering, and custom pixel canvas components. Includes particle.js background effects, frosted glass UI elements, and responsive design across all breakpoints.',
+    tags: ['JavaScript', 'React', 'HTML/CSS', 'Astro', 'Git', 'Tailwind CSS', 'TypeScript'],
+    category: 'Web Development',
+    date: '2025-10',
+    status: 'in-progress',
+    featured: true,
+    progress: 95,
+    github: 'https://github.com/rayfould/Personal-Website',
+    link: 'https://rudolfrissling.com',
+    image: '/images/logo/rdy_logo_white.png',
     imageScale: 0.6
   }
 ];
