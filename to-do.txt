@@ -307,6 +307,8 @@ src/pages/
     - Dynamic article selection: automatically switches between "a", "an", or no article
       - Vowel detection for "a" vs "an"
       - Removes article completely for phrases starting with "The"
+      - Article types out character-by-character before the word (in white)
+      - Smooth transition: types article → brief pause → types word → long pause → deletes word → deletes article
     - Purple color for typed text and cursor (rgb(153, 82, 228))
     - Blinking cursor animation (1s step-end infinite)
     - Typing speed: 60ms per character

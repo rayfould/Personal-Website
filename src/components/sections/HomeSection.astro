@@ -43,7 +43,7 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    margin-top: -8rem;
+    margin-top: -10rem;
     margin-left: -10rem;
   }
 
@@ -117,7 +117,9 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
 
     let wordIndex = 0;
     let charIndex = 0;
+    let articleCharIndex = 0;
     let isDeleting = false;
+    let isTypingArticle = true;
     let typingSpeed = 60;
 
     function getArticle(word: string): string {
@@ -129,44 +131,60 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
       return vowels.includes(word[0].toLowerCase()) ? 'an' : 'a';
     }
 
-    function updateArticle() {
-      const currentWord = words[wordIndex];
-      articleElement.textContent = getArticle(currentWord);
-    }
-
     function type() {
       const currentWord = words[wordIndex];
+      const currentArticle = getArticle(currentWord);
 
       if (isDeleting) {
-        // Delete characters
-        typedTextElement.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 30; // Faster deletion
+        // Delete word first, then article
+        if (charIndex > 0) {
+          // Delete word characters
+          typedTextElement.textContent = currentWord.substring(0, charIndex - 1);
+          charIndex--;
+          typingSpeed = 30;
+        } else if (articleCharIndex > 0) {
+          // Delete article characters
+          articleElement.textContent = currentArticle.substring(0, articleCharIndex - 1);
+          articleCharIndex--;
+          typingSpeed = 30;
+        } else {
+          // Everything deleted, move to next word
+          isDeleting = false;
+          isTypingArticle = true;
+          wordIndex = (wordIndex + 1) % words.length;
+          typingSpeed = 500; // Pause before typing next word
+        }
       } else {
-        // Type characters
-        typedTextElement.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 60; // Normal typing speed
-      }
-
-      // Check if word is complete
-      if (!isDeleting && charIndex === currentWord.length) {
-        // Pause at end of word
-        typingSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        // Move to next word
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        updateArticle(); // Update article for new word
-        typingSpeed = 500; // Pause before typing next word
+        // Type article first, then word
+        if (isTypingArticle) {
+          const nextArticle = getArticle(words[wordIndex]);
+          if (articleCharIndex < nextArticle.length) {
+            // Type article characters
+            articleElement.textContent = nextArticle.substring(0, articleCharIndex + 1);
+            articleCharIndex++;
+            typingSpeed = 60;
+          } else {
+            // Article complete, start typing word
+            isTypingArticle = false;
+            typingSpeed = 100; // Brief pause between article and word
+          }
+        } else {
+          // Type word characters
+          typedTextElement.textContent = currentWord.substring(0, charIndex + 1);
+          charIndex++;
+          typingSpeed = 60;
+          
+          // Check if word is complete
+          if (charIndex === currentWord.length) {
+            typingSpeed = 2000; // Pause at end
+            isDeleting = true;
+          }
+        }
       }
 
       setTimeout(type, typingSpeed);
     }
 
-    // Initialize with correct article
-    updateArticle();
     // Start typing animation
     type();
   });
