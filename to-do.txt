@@ -651,6 +651,7 @@ src/styles/globals.css
 - [DONE] ProjectsSection: Single column grid, horizontal skills layout, reduced padding (2rem 1rem)
 - [DONE] TimelineSection: Vertical stack layout from left side, reduced font sizes
 - [DONE] AboutMeSection: Single column card grid, 2rem gap instead of 5rem
+- [DONE] AboutMeSection: Removed cross dividers on mobile (background: none)
 - [DONE] EducationSection: Smaller headings and text, reduced padding
 - [DONE] EducationSection: Reset reverse layout order (BU entry) - both entries now stack consistently
 - [DONE] EducationSection: Fixed specificity issue - explicitly set single column for .reverse layout
