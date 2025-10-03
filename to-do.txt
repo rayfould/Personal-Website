@@ -392,10 +392,126 @@ to-do.txt
 - Site is responsive across desktop, tablet, and mobile breakpoints
 
 **Next priorities:**
-- Implement interactive terminal UI in home section right column
-- Populate projects with real project data
-- Add content to Timeline section
 - Build out Reach Out/Contact section
+- Add Education section content
 - Consider adding smooth scroll animations or parallax effects
 - Test cross-browser compatibility
+- Add project images
+
+================================================================================
+
+## SESSION 4 - October 3, 2025 (Continued)
+
+### GOALS COMPLETED
+- [X] Fix particle background pointer-events issue
+- [X] Implement interactive terminal UI with Q&A system
+- [X] Add scroll-based blur effect to logo with purple hover
+- [X] Update projects with real project data and confidential badges
+- [X] Populate timeline with actual journey milestones
+- [X] Add reversible scroll animations to timeline
+- [X] Implement color-coded hover effects for timeline events
+
+### KEY ACCOMPLISHMENTS
+
+**Home Section Fixes:**
+- Fixed pointer-events on text overlay to allow particle interactions
+- Added pointer-events: none to content container
+- Enabled pointer-events: auto on right column for terminal interaction
+
+**Interactive Terminal:**
+- Built retro-style terminal UI with purple color scheme matching site theme
+- Implemented command-line interface with natural language Q&A system
+- Added 7 core commands: help, about, skills, projects, education, contact, clear
+- Included 8 easter eggs: sudo, rm -rf /, exit, whoami, ls, pwd
+- Features:
+  * Command history with up/down arrow navigation
+  * Auto-focus on click
+  * Colored prompt and cursor
+  * Monospace font (Courier New)
+  * Scrollable output with custom purple scrollbar
+  * Terminal window with macOS-style buttons
+  * Welcome message: "Welcome! Ask me anything!"
+- Terminal responses use explicit newline characters (\n) with innerText rendering
+- Font optimized: 1rem size, #e8e8e8 response color, white welcome message
+- Proper paragraph spacing between command outputs
+
+**Logo Enhancements:**
+- Added scroll-triggered backdrop blur effect (rgba(0,0,0,0.3) + 20px blur)
+- Logo gets 0.75rem padding and moves slightly (top/left: 0.75rem) when scrolled
+- Purple hover effect using CSS filter chain to convert white to rgb(153, 82, 228)
+- Instant color change (no transition) to avoid cyan intermediate state
+- Favicon updated to rdy_round_small.png
+
+**Projects Section Updates:**
+- Replaced 9 mock projects with 6 real projects:
+  1. Portfolio Website (85% - in progress) - JavaScript, React, HTML/CSS
+  2. CourseBranch (15% - in progress) - React, Node.js, PostgreSQL  
+  3. Ventaura (100% - completed) - C#, .NET Core, Python, React
+  4. Muse (90% - in progress) - Kotlin, Jetpack Compose
+  5. QueryMind NL2SQL Engine (100% - CONFIDENTIAL)
+  6. Gmail AI Automation Platform (100% - CONFIDENTIAL)
+- Added "REDACTED" badges (red, top-right) on confidential projects
+- Confidential projects note: "developed for company currently using in production"
+- Added GitHub and live site links for 4 non-confidential projects
+- Concise descriptions focusing on key metrics and tech stack
+- Terminal projects command updated to list all 6 projects with [CONFIDENTIAL] markers
+
+**Timeline Section Overhaul:**
+- Replaced mock timeline with 8 real journey milestones:
+  1. Started at Virginia Tech (Aug 2022) - Orange
+  2. Transferred to Boston University (Jan 2024) - Red  
+  3. Built Ventaura (Fall 2024) - Pink
+  4. Created Muse (Spring 2025) - Green
+  5. Lawyer.com Internship (May-Aug 2025) - Blue
+  6. Consultant at Lawyer.com (Aug 2025-Present) - Blue
+  7. Started CourseBranch (Fall 2025) - Red
+  8. Built Portfolio Website (Oct 2025) - Purple
+- Implemented scroll-triggered animations:
+  * Fade in + slide up effect when scrolling into view
+  * IntersectionObserver with 20% threshold
+  * Left items slide from left, right items slide from right
+  * Timeline dots scale from 0 to 1 with purple glow
+  * Reversible: items fade out when scrolling back up
+- Color-coded hover effects for each event:
+  * Border, title, date, and dot all change to event-specific color
+  * Box slides away from center line (30px) on hover to avoid overlap
+  * Scale: 1.03x on hover (1.02x on mobile)
+  * Bright vibrant blue (#0099ff) for Lawyer.com entries
+  * Lighter green (rgb(74, 204, 161)) for project entries
+- Hover effects only trigger when cursor is inside content box (not empty space)
+- Smooth transitions using cubic-bezier easing
+
+### TECHNICAL NOTES
+- Terminal uses Web Components-style script tag in Astro component
+- innerText preserves newlines for terminal output formatting
+- CSS sibling selector (~) used to trigger dot animations from content hover
+- IntersectionObserver provides reversible scroll animations
+- Filter chain for logo color: brightness(0) → invert → sepia → saturate → hue-rotate
+- Confidential flag added to Project type interface
+- Data-color attributes on timeline items for dynamic styling
+- Pointer-events management crucial for layered interactive elements
+
+### SESSION 4 SUMMARY
+
+**What was accomplished:**
+- Fully functional interactive terminal with Q&A system and easter eggs
+- All projects replaced with real portfolio work including 2 confidential projects with badges
+- Complete timeline of actual journey from VT through current work
+- Advanced scroll animations that are reversible on timeline
+- Color-coded interactive timeline with precise hover detection
+- Logo enhancements with scroll blur and purple hover effect
+
+**Current state:**
+- Home section complete with typing animation (left) and terminal (right)
+- Projects section populated with real work and functional skill filtering
+- Timeline tells complete story with beautiful animations and color-coded events
+- All interactive elements have smooth, polished animations
+- Site maintains consistent purple theme throughout
+
+**Next priorities:**
+- Build out Reach Out/Contact section
+- Add actual Education section content (currently has spotlight effect placeholder)
+- Add project images to project cards
+- Consider adding About Me section content refinements
+- Final polish and cross-browser testing
 
