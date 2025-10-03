@@ -138,90 +138,100 @@ README.md, to-do.txt
 
 ================================================================================
 
-## SESSION 2 - October 2, 2025
+## SESSION 2 - October 3, 2025
 
-### GOALS
-- [X] Design projects page grid structure
-- [X] Build education section with diagonal split design
+### GOALS COMPLETED
+- [X] Design and implement projects page with interactive grid
+- [X] Build education section with spotlight reveal effect
+- [X] Create vertical timeline with alternating layout
 
-### STEPS COMPLETED
-- [DONE] Created Project TypeScript interface with filterable/sortable attributes
-- [DONE] Created projects data file for project storage
-- [DONE] Built ProjectCard component with rectangular card design
-- [DONE] Implemented responsive grid layout in ProjectsSection
-- [DONE] Added hover effects and styling for cards
-- [DONE] Added 9 mock projects for layout testing
-- [DONE] Made cards more vertical with fixed image height (250px)
-- [DONE] Added progress bar field to Project type
-- [DONE] Implemented hover overlay with progress bar and action buttons
-- [DONE] Added progress values to all mock projects
-- [DONE] Changed 100% progress to display "Completed"
-- [DONE] Added drop shadow on card hover
-- [DONE] Implemented circular cursor-following glow effect on cards
-- [DONE] Created education section with diagonal split triangular design
-- [DONE] Added hover glow and scale effects to education triangles
-- [DONE] Made education section responsive for mobile
-- [DONE] Adjusted triangle sizes to 600x600px and reduced gap to 2px for slit effect
-- [DONE] Redesigned to single rectangle with diagonal split
-- [DONE] Made top-left and bottom-right triangles independently hoverable with glow effect
-- [DONE] Added orange gradient to top-left triangle
-- [DONE] Added red gradient to bottom-right triangle
-- [DONE] Added black diagonal separator line using SVG for precise diagonal rendering
-- [DONE] Made separator line much thicker (4px stroke width)
-- [DONE] Muted colors with dark film effect (dark orange and dark red)
-- [DONE] Adjusted hover to brighten muted colors slightly
-- [DONE] Added lift animation on hover (translateY -10px)
-- [DONE] Added colorful glowing border effect using drop-shadow filters (4px thick)
-- [DONE] Used cubic-bezier easing for smooth bouncy animation
-- [DONE] Added subtle brightness increase on hover (1.05)
-- [DONE] Enhanced with vibrant multi-layered shadow effects (border + multiple glows)
-- [DONE] Removed overflow:hidden to allow shadows to be visible
-- [DONE] Added margin-bottom to container for shadow clearance
-- [DONE] Cleared education section content for redesign
-- [DONE] Created two-column layout (image left, text right)
-- [DONE] Implemented spotlight/flashlight effect with cursor tracking
-- [DONE] Added dark overlay with circular mask that follows pointer
-- [DONE] Added education content with Boston University details
-- [DONE] Added border and drop shadow to image (always visible)
-- [DONE] Made spotlight effect more concentrated (100px radius)
-- [DONE] Added vibrant red neon border effect on hover with multi-layered glow
-- [DONE] Reduced overlay opacity to 0.6 for stronger reveal effect
-- [DONE] Made spotlight circle sharper with less feathering (85% to 100% transition)
-- [DONE] Added brightness boost layer to revealed area for stronger contrast
-- [DONE] Changed lifting effect to scale enlargement (scale 1.05) that grows in all directions
-- [DONE] Added minimal text column styling with simple left border (2px solid #444)
-- [DONE] Removed key achievements section
-- [DONE] Centered text column content vertically with flexbox
-- [DONE] Created basic vertical timeline mockup with alternating boxes
-- [DONE] Added timeline dots and connecting line
-- [DONE] Added 6 mock timeline events with dates and descriptions
-- [DONE] Increased timeline box sizes (48% width, 2rem padding)
-- [DONE] Increased font sizes (h3: 1.75rem, date: 1rem, description: 1.1rem)
-- [DONE] Increased container max-width to 1400px
-- [DONE] Fixed box alignment to center line with calculated margins
-- [DONE] Duplicated education section for Virginia Tech
-- [DONE] Added Virginia Tech as Master's program (2023 - Present)
-- [DONE] Updated spotlight script to handle multiple image sections
-- [DONE] Added spacing between education entries (5rem margin-bottom)
-- [DONE] Flipped Boston University section to have image on right using CSS order
-- [DONE] Added orange border/glow for Virginia Tech (instead of red)
-- [DONE] Added school logos that appear on hover
-- [DONE] Positioned VT logo in bottom right corner
-- [DONE] Positioned BU logo in bottom left corner
-- [DONE] Added fade-in and scale animation for logos on hover
+### KEY ACCOMPLISHMENTS
+
+**Projects Section:**
+- Created TypeScript interface for Project with filterable attributes (tags, category, date, status, progress, featured)
+- Built responsive grid layout using CSS Grid (auto-fill, minmax 350px)
+- Designed vertical project cards with fixed 250px image height
+- Implemented hover overlay with progress bar (shows percentage or "Completed" for 100%)
+- Added GitHub and project link buttons in hover overlay
+- Created circular cursor-following glow effect on cards
+- Added drop shadow and scale effects on hover
+- Populated with 9 diverse mock projects across different categories
+- Progress tracking system with visual indicators
+
+**Education Section:**
+- Designed two-column layout (image + text) for each institution
+- Implemented interactive spotlight/flashlight effect with cursor tracking
+  - 100px radius circular reveal with sharp edges (85-100% transition)
+  - Dark overlay (75% opacity) with brightness boost layer in revealed area
+  - Radial gradient mask follows mouse movement
+- Added multi-layered neon border effects on hover
+  - Virginia Tech: Orange glow (#ff8c42)
+  - Boston University: Red glow (#ff0040)
+- Implemented scale animation (1.05x) on image hover
+- Added school logos that fade in on hover
+  - VT logo: bottom-right corner
+  - BU logo: bottom-left corner
+- Reversed layout for BU section (text left, image right) using CSS order
+- Minimal text styling with simple border accent
+- Supports multiple spotlight instances via updated script
+
+**Timeline Section:**
+- Created vertical timeline with center line and dots
+- Implemented alternating box layout (48% width boxes on left/right)
+- Added 6 mock timeline events with titles, dates, and descriptions
+- Styled with dark boxes, borders, and shadows
+- Large readable fonts (h3: 1.75rem, description: 1.1rem)
+- 1400px max-width container for better page presence
+- Responsive design that stacks on mobile
 
 ### FILES CREATED
-- src/types/project.ts
-- src/data/projects.ts
-- src/components/ProjectCard.astro
+```
+src/
+  types/project.ts
+  data/projects.ts
+  components/ProjectCard.astro
+```
 
 ### FILES MODIFIED
-- src/components/sections/ProjectsSection.astro
-- src/components/sections/EducationSection.astro
+```
+src/components/sections/
+  ProjectsSection.astro
+  EducationSection.astro
+  TimelineSection.astro
+```
 
-### NOTES
-- Project interface includes attributes for future filtering: tags, category, date, status, featured
-- Grid uses CSS Grid with auto-fill and minmax(350px, 1fr) for responsiveness
-- Cards include: image, title, description, tags, links (project link + GitHub)
-- Dark theme styling consistent with site design
+### TECHNICAL NOTES
+- Spotlight effect uses CSS mask-image with radial-gradient for cursor tracking
+- Multiple spotlight instances handled with querySelectorAll and forEach loop
+- Project cards use cursor-following effect via mousemove event listeners
+- CSS Grid order property used to flip layout without changing HTML structure
+- Progress bar displays "Completed" text for 100% projects, percentage otherwise
+- Drop-shadow filters used for neon glow effects (better than box-shadow for complex shapes)
+- Timeline uses calculated margins (calc(2% + 8px)) to maintain alignment at different screen sizes
+- All hover effects use cubic-bezier easing for smooth, bouncy animations
+
+### SESSION 2 SUMMARY
+
+**What was accomplished:**
+- Complete Projects section with interactive grid, hover effects, and progress tracking
+- Fully functional Education section featuring spotlight reveal effect and neon borders
+- Timeline mockup with vertical layout and alternating boxes
+- 9 mock projects with varied attributes for testing filtering/sorting
+- Dual education entries (Virginia Tech Master's, Boston University Bachelor's)
+- 6 timeline events showcasing the journey structure
+
+**Current state:**
+- Projects page ready for real project data
+- Education section with interactive spotlight and school-specific branding
+- Timeline structure complete, ready for actual journey milestones
+- All three sections have polished hover interactions and animations
+- Consistent dark theme across all new sections
+
+**Next priorities:**
+- Populate sections with real content (actual projects, timeline events)
+- Build out Home section with introduction
+- Create Reach Out/Contact section
+- Add filtering/sorting functionality to projects grid
+- Style navigation bar
+- Implement smooth scroll spy for active nav state
 
