@@ -11,5 +11,6 @@ export interface Project {
   github?: string;
   image?: string;
   progress?: number;
+  confidential?: boolean;
 }
 
