@@ -1,15 +1,89 @@
 ---
 import ProjectCard from '@/components/ProjectCard.astro';
 import { projects } from '@/data/projects';
+
+const skillCategories = [
+  {
+    title: 'Languages',
+    skills: ['Java', 'C#', 'Python', 'JavaScript', 'HTML/CSS', 'SQL', 'OCaml', 'Kotlin']
+  },
+  {
+    title: 'Frameworks & Libraries',
+    skills: ['.NET Core', 'Flask', 'React', 'Bootstrap', 'JUnit', 'PyTorch', 'FastAPI', 'Node.js', 'Django']
+  },
+  {
+    title: 'Technologies & Tools',
+    skills: ['Git', 'Docker', 'Oracle', 'Gradle', 'Unix', 'PostgreSQL', 'Heroku', 'Vercel', 'Jetpack Compose']
+  }
+];
+
+// Icon mapping for skills - using Simple Icons color scheme
+const skillIcons: Record<string, string> = {
+  'Java': '#007396',
+  'C#': '#239120',
+  'Python': '#3776AB',
+  'JavaScript': '#F7DF1E',
+  'HTML/CSS': '#E34F26',
+  'SQL': '#4479A1',
+  'OCaml': '#EC6813',
+  'Kotlin': '#7F52FF',
+  '.NET Core': '#512BD4',
+  'Flask': '#000000',
+  'React': '#61DAFB',
+  'Bootstrap': '#7952B3',
+  'JUnit': '#25A162',
+  'PyTorch': '#EE4C2C',
+  'FastAPI': '#009688',
+  'Node.js': '#339933',
+  'Django': '#092E20',
+  'Git': '#F05032',
+  'Docker': '#2496ED',
+  'Oracle': '#F80000',
+  'Gradle': '#02303A',
+  'Unix': '#000000',
+  'PostgreSQL': '#4169E1',
+  'Heroku': '#430098',
+  'Vercel': '#000000',
+  'Jetpack Compose': '#4285F4'
+};
 ---
 
 <section id="projects">
   <div class="container">
     <h2 class="section-title">Projects</h2>
     
-    <div class="projects-grid">
+    <div class="skills-section">
+      <h3 class="skills-title">SKILLS</h3>
+      <div class="divider"></div>
+      <div class="skills-categories">
+        {skillCategories.map((category) => (
+          <div class="skill-category">
+            <div class="category-title">{category.title}</div>
+            <div class="skills-list">
+              {category.skills.map((skill) => (
+                <button 
+                  class="skill-tag" 
+                  data-skill={skill}
+                  aria-label={`Filter projects by ${skill}`}
+                >
+                  <span class="skill-icon" style={`background-color: ${skillIcons[skill] || '#666'}`}></span>
+                  {skill}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <button class="clear-filter" id="clear-filter" style="display: none;">
+        Clear Filter
+      </button>
+    </div>
+    
+    <div class="projects-grid" id="projects-grid">
       {projects.map((project) => (
-        <ProjectCard project={project} />
+        <div class="project-wrapper" data-tags={project.tags?.join(',') || ''}>
+          <ProjectCard project={project} />
+        </div>
       ))}
     </div>
   </div>
@@ -19,6 +93,8 @@ import { projects } from '@/data/projects';
   section {
     min-height: 100vh;
     padding: 4rem 2rem;
+    margin-top: 4rem;
+    background-color: #0a0a0a;
   }
 
   .container {
@@ -34,13 +110,146 @@ import { projects } from '@/data/projects';
     color: white;
   }
 
+  .skills-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    padding: 1.5rem 0;
+  }
+
+  .skills-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.15em;
+    height: 30%;
+    display: flex;
+    align-items: center;
+  }
+
+  .divider {
+    width: 1px;
+    min-height: 100%;
+    background-color: #333;
+    flex-shrink: 0;
+  }
+
+  .skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+  }
+
+  .skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .category-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skill-tag {
+    background-color: white;
+    color: #1a1a1a;
+    font-size: 0.875rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .skill-tag:hover {
+    background-color: rgb(153, 82, 228);
+    color: white;
+  }
+
+  .skill-tag.active {
+    background-color: rgb(153, 82, 228);
+    color: white;
+  }
+
+  .clear-filter {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #1a1a1a;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+  }
+
+  .clear-filter:hover {
+    background-color: #2a2a2a;
+    border-color: #666;
+  }
+
+  .project-wrapper {
+    transition: all 0.5s ease;
+    order: 0;
+  }
+
+  .project-wrapper.filtered-out {
+    order: 1;
+    opacity: 0.3;
+  }
+
+  .project-wrapper.filtered-out :global(.project-card) {
+    filter: grayscale(100%);
+  }
+
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 768px) {
+    .skills-section {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      min-height: 1px;
+    }
+
     .projects-grid {
       grid-template-columns: 1fr;
     }
