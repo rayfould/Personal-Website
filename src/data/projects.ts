@@ -10,9 +10,11 @@ export const projects: Project[] = [
     date: '2025-10',
     status: 'in-progress',
     featured: true,
-    progress: 85,
+    progress: 95,
     github: 'https://github.com/rayfould/Personal-Website',
-    link: 'https://rudolfrissling.com'
+    link: 'https://rudolfrissling.com',
+    image: '/images/logo/rdy_logo_white.png',
+    imageScale: 0.6
   },
   {
     id: 'coursebranch',
@@ -25,7 +27,9 @@ export const projects: Project[] = [
     featured: true,
     progress: 15,
     github: 'https://github.com/rayfould/coursebranch',
-    link: 'https://coursebranch.com'
+    link: 'https://coursebranch.com',
+    image: '/images/logo/CourseBranch_logo.png',
+    imageScale: 1.3
   },
   {
     id: 'ventaura',
@@ -38,7 +42,9 @@ export const projects: Project[] = [
     featured: true,
     progress: 100,
     github: 'https://github.com/rayfould/Ventaura',
-    link: 'https://ventaura.co'
+    link: 'https://ventaura.co',
+    image: '/images/logo/ventaura_logo.png',
+    imageScale: 1.3
   },
   {
     id: 'muse',
@@ -51,7 +57,9 @@ export const projects: Project[] = [
     featured: true,
     progress: 90,
     github: 'https://github.com/rayfould/Muse',
-    link: 'https://muse-app.com'
+    link: 'https://muse-app.com',
+    image: '/images/logo/muse_logo.png',
+    imageScale: 0.5
   },
   {
     id: 'nl2sql-engine',
@@ -63,7 +71,9 @@ export const projects: Project[] = [
     status: 'completed',
     featured: true,
     progress: 100,
-    confidential: true
+    confidential: true,
+    image: '/images/logo/nl2sql_logo.png',
+    imageScale: 0.7
   },
   {
     id: 'gmail-ai-automation',
@@ -75,7 +85,9 @@ export const projects: Project[] = [
     status: 'completed',
     featured: true,
     progress: 100,
-    confidential: true
+    confidential: true,
+    image: '/images/logo/gmail_logo.png',
+    imageScale: 0.6
   }
 ];
 

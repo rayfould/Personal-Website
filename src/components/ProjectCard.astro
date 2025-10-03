@@ -8,6 +8,7 @@ interface Props {
 const { project } = Astro.props;
 const progressPercent = project.progress ?? 100;
 const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent}%`;
+const imageScale = project.imageScale ?? 1.0;
 ---
 
 <div class="project-card" data-cursor-glow>
@@ -17,7 +18,7 @@ const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent
   )}
   <div class="project-image">
     {project.image ? (
-      <img src={project.image} alt={project.title} />
+      <img src={project.image} alt={project.title} style={`transform: scale(${imageScale});`} />
     ) : (
       <div class="image-placeholder"></div>
     )}
@@ -46,7 +47,13 @@ const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent
     
     <div class="project-links">
       {project.link && (
-        <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-link">
+        <a 
+          href={project.link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="project-link"
+          data-project-id={project.id}
+        >
           View Project
         </a>
       )}
@@ -58,6 +65,20 @@ const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent
     </div>
   </div>
 </div>
+
+<script>
+  // Add silly popup for portfolio website link
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectLinks = document.querySelectorAll('a[data-project-id="portfolio-website"]');
+    
+    projectLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("You're already here, silly!");
+      });
+    });
+  });
+</script>
 
 <style>
   .project-card {
@@ -99,12 +120,15 @@ const progressLabel = progressPercent === 100 ? 'Completed' : `${progressPercent
     overflow: hidden;
     background-color: #0a0a0a;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .image-placeholder {
