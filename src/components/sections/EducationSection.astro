@@ -2,30 +2,42 @@
   <div class="container">
     <h2 class="section-title">Education</h2>
     
-    <div class="education-rectangle">
-      <div class="triangle-top-left">
-        <div class="triangle-content">
-          <h3>Bachelor's Degree</h3>
-          <p class="institution">University Name</p>
-          <p class="field">Computer Science</p>
-          <p class="year">2019 - 2023</p>
-          <p class="description">Focused on software engineering, algorithms, and data structures. Graduated with honors.</p>
-        </div>
+    <div class="education-layout">
+      <div class="image-column" data-spotlight>
+        <img src="/images/virginia.jpg" alt="Virginia Tech" class="base-image" />
+        <div class="overlay"></div>
+        <div class="brightness-spot"></div>
       </div>
       
-      <div class="triangle-bottom-right">
-        <div class="triangle-content">
-          <h3>Master's Degree</h3>
-          <p class="institution">University Name</p>
-          <p class="field">Software Engineering</p>
-          <p class="year">2023 - 2025</p>
-          <p class="description">Advanced studies in distributed systems, cloud architecture, and machine learning.</p>
-        </div>
+      <div class="text-column">
+        <h3>Virginia Tech</h3>
+        <p class="degree">Master of Science in Computer Science</p>
+        <p class="year">2023 - Present</p>
+        <p class="description">
+          Advanced studies in distributed systems, cloud computing, and software architecture. 
+          Specializing in scalable system design and conducting research on high-performance 
+          computing applications.
+        </p>
+      </div>
+    </div>
+
+    <div class="education-layout">
+      <div class="image-column" data-spotlight>
+        <img src="/images/bu4.webp" alt="Boston University" class="base-image" />
+        <div class="overlay"></div>
+        <div class="brightness-spot"></div>
       </div>
       
-      <svg class="diagonal-separator" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <line x1="100" y1="0" x2="0" y2="100" stroke="black" stroke-width="2" />
-      </svg>
+      <div class="text-column">
+        <h3>Boston University</h3>
+        <p class="degree">Bachelor of Science in Computer Science</p>
+        <p class="year">2019 - 2023</p>
+        <p class="description">
+          Focused on software engineering, algorithms, data structures, and artificial intelligence. 
+          Graduated with honors and participated in various research projects in machine learning 
+          and distributed systems.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -53,141 +65,170 @@
     color: white;
   }
 
-  .education-rectangle {
+  .education-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  .education-layout:last-child {
+    margin-bottom: 0;
+  }
+
+  .education-layout:nth-child(3) {
+    direction: rtl;
+  }
+
+  .education-layout:nth-child(3) > * {
+    direction: ltr;
+  }
+
+  .image-column {
     position: relative;
     width: 100%;
-    max-width: 1200px;
-    height: 600px;
-    margin: 0 auto;
-    border: 1px solid #333;
-    border-radius: 8px;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
     overflow: hidden;
-    background-color: #1a1a1a;
+    cursor: none;
+    border: 2px solid #444;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.4);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
   }
 
-  .triangle-top-left,
-  .triangle-bottom-right {
-    position: absolute;
+  .image-column:hover {
+    transform: scale(1.05);
+    border-color: #ff0040;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(255, 0, 64, 0.6),
+                0 0 40px rgba(255, 0, 64, 0.4),
+                0 0 60px rgba(255, 0, 64, 0.2),
+                inset 0 0 20px rgba(255, 0, 64, 0.1);
+  }
+
+  .base-image {
     width: 100%;
     height: 100%;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    filter: brightness(1);
+    object-fit: cover;
+    display: block;
   }
 
-  .triangle-top-left {
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    background: linear-gradient(135deg, #3d2415 0%, #4a2c18 100%);
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
-  .triangle-bottom-right {
-    clip-path: polygon(100% 0, 100% 100%, 0 100%);
-    background: linear-gradient(135deg, #3d1519 0%, #4a1820 100%);
-  }
-
-  .triangle-top-left:hover {
-    background: linear-gradient(135deg, #5a3620 0%, #6b4026 100%);
-    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
-  }
-
-  .triangle-bottom-right:hover {
-    background: linear-gradient(135deg, #5a2028 0%, #6b2630 100%);
-    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
-  }
-
-  .diagonal-separator {
+  .brightness-spot {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
 
-  .triangle-content {
-    padding: 3rem;
-    height: 100%;
+  .image-column:hover .brightness-spot {
+    opacity: 1;
+  }
+
+  .text-column {
+    color: white;
+    padding: 2rem;
+    border-left: 2px solid #444;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .education-layout:nth-child(3) .text-column {
+    border-left: none;
+    border-right: 2px solid #444;
+  }
+
+  .text-column h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
     color: white;
-    pointer-events: none;
   }
 
-  .triangle-top-left .triangle-content {
-    align-items: flex-start;
-    text-align: left;
-    padding-right: 50%;
-  }
-
-  .triangle-bottom-right .triangle-content {
-    align-items: flex-end;
-    text-align: right;
-    padding-left: 50%;
-    justify-content: flex-end;
-  }
-
-  .triangle-content h3 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .institution {
+  .degree {
     font-size: 1.25rem;
     color: #aaa;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
   }
 
-  .field {
-    font-size: 1.1rem;
+  .year {
+    font-size: 1rem;
+    color: #888;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.8;
     color: #ccc;
     margin: 0;
   }
 
-  .year {
-    font-size: 0.95rem;
-    color: #888;
-    margin: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #bbb;
-    margin: 0;
-  }
-
   @media (max-width: 900px) {
-    .education-rectangle {
-      height: 800px;
+    .education-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
-    .triangle-top-left .triangle-content {
-      padding: 2rem;
-      padding-right: 40%;
-    }
-
-    .triangle-bottom-right .triangle-content {
-      padding: 2rem;
-      padding-left: 40%;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .education-rectangle {
-      height: 900px;
-    }
-
-    .triangle-top-left .triangle-content,
-    .triangle-bottom-right .triangle-content {
-      padding: 1.5rem;
-      padding-right: 2rem;
-      padding-left: 2rem;
+    .image-column {
+      max-width: 600px;
+      margin: 0 auto;
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const spotlights = document.querySelectorAll('[data-spotlight]');
+    
+    spotlights.forEach((spotlight) => {
+      const overlay = spotlight.querySelector('.overlay');
+      const brightnessSpot = spotlight.querySelector('.brightness-spot');
+      if (!overlay || !brightnessSpot) return;
+
+      spotlight.addEventListener('mousemove', (e) => {
+        const rect = spotlight.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Sharper mask with less feathering
+        overlay.style.maskImage = `radial-gradient(circle 100px at ${x}px ${y}px, transparent 0%, transparent 85%, black 100%)`;
+        overlay.style.webkitMaskImage = `radial-gradient(circle 100px at ${x}px ${y}px, transparent 0%, transparent 85%, black 100%)`;
+        
+        // Brightness boost in revealed area
+        brightnessSpot.style.background = `radial-gradient(circle 100px at ${x}px ${y}px, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%)`;
+      });
+
+      spotlight.addEventListener('mouseenter', () => {
+        overlay.style.maskImage = '';
+        overlay.style.webkitMaskImage = '';
+      });
+
+      spotlight.addEventListener('mouseleave', () => {
+        overlay.style.maskImage = '';
+        overlay.style.webkitMaskImage = '';
+        brightnessSpot.style.background = '';
+      });
+    });
+  });
+</script>
 
