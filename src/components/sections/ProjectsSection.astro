@@ -205,6 +205,8 @@ const skillIcons: Record<string, string> = {
     cursor: pointer;
     font-size: 0.875rem;
     transition: all 0.3s ease;
+    align-self: flex-start;
+    white-space: nowrap;
   }
 
   .clear-filter:hover {
@@ -261,14 +263,13 @@ const skillIcons: Record<string, string> = {
     const skillTags = document.querySelectorAll('.skill-tag');
     const projectWrappers = document.querySelectorAll('.project-wrapper');
     const clearFilterBtn = document.getElementById('clear-filter');
-    let activeSkill: string | null = null;
+    let activeSkills: Set<string> = new Set();
 
-    function filterProjects(skill: string) {
-      activeSkill = skill;
-
-      // Update active state on skill tags
+    function updateFilter() {
+      // Update visual state of skill tags
       skillTags.forEach(tag => {
-        if (tag.getAttribute('data-skill') === skill) {
+        const skill = tag.getAttribute('data-skill');
+        if (skill && activeSkills.has(skill)) {
           tag.classList.add('active');
         } else {
           tag.classList.remove('active');
@@ -276,40 +277,44 @@ const skillIcons: Record<string, string> = {
       });
 
       // Filter and reorder projects
-      projectWrappers.forEach(wrapper => {
-        const tags = wrapper.getAttribute('data-tags')?.split(',') || [];
-        const hasSkill = tags.includes(skill);
-
-        if (hasSkill) {
+      if (activeSkills.size === 0) {
+        // No filters active - show all projects normally
+        projectWrappers.forEach(wrapper => {
           wrapper.classList.remove('filtered-out');
-        } else {
-          wrapper.classList.add('filtered-out');
+        });
+        if (clearFilterBtn) {
+          clearFilterBtn.style.display = 'none';
         }
-      });
+      } else {
+        // Filters active - show projects that match ALL of the active skills
+        projectWrappers.forEach(wrapper => {
+          const tags = wrapper.getAttribute('data-tags')?.split(',') || [];
+          const hasAllActiveSkills = Array.from(activeSkills).every(skill => tags.includes(skill));
 
-      // Show clear filter button
-      if (clearFilterBtn) {
-        clearFilterBtn.style.display = 'block';
+          if (hasAllActiveSkills) {
+            wrapper.classList.remove('filtered-out');
+          } else {
+            wrapper.classList.add('filtered-out');
+          }
+        });
+        if (clearFilterBtn) {
+          clearFilterBtn.style.display = 'block';
+        }
       }
     }
 
-    function clearFilter() {
-      activeSkill = null;
-
-      // Remove active state from all skill tags
-      skillTags.forEach(tag => {
-        tag.classList.remove('active');
-      });
-
-      // Remove filter from all projects
-      projectWrappers.forEach(wrapper => {
-        wrapper.classList.remove('filtered-out');
-      });
-
-      // Hide clear filter button
-      if (clearFilterBtn) {
-        clearFilterBtn.style.display = 'none';
+    function toggleSkill(skill: string) {
+      if (activeSkills.has(skill)) {
+        activeSkills.delete(skill);
+      } else {
+        activeSkills.add(skill);
       }
+      updateFilter();
+    }
+
+    function clearFilter() {
+      activeSkills.clear();
+      updateFilter();
     }
 
     // Add click handlers to skill tags
@@ -317,13 +322,7 @@ const skillIcons: Record<string, string> = {
       tag.addEventListener('click', () => {
         const skill = tag.getAttribute('data-skill');
         if (skill) {
-          if (activeSkill === skill) {
-            // If clicking the same skill, clear filter
-            clearFilter();
-          } else {
-            // Otherwise, filter by this skill
-            filterProjects(skill);
-          }
+          toggleSkill(skill);
         }
       });
     });
