@@ -4,7 +4,7 @@
 
 <section id="about" class="min-h-screen flex items-center justify-center px-4 py-20" style="background-color: #1a1a1a; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a;">
   <div class="about-container">
-    <h2 class="text-4xl font-bold mb-12 text-center">About Me</h2>
+    <h2 class="section-title">About Me</h2>
     
     <main class="card-grid">
       <div class="card clickable-card" data-url="https://github.com/rayfould">
@@ -50,6 +50,28 @@
 </section>
 
 <style>
+  .section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 25vh;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgb(153, 82, 228), transparent);
+  }
+
   .about-container {
     max-width: 1400px;
     width: 100%;

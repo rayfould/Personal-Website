@@ -51,6 +51,7 @@
     background-color: #000000;
     border-top: 1px solid #1a1a1a;
     border-bottom: 1px solid #1a1a1a;
+    
   }
 
   .container {
@@ -60,11 +61,24 @@
   }
 
   .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
     text-align: center;
     color: white;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgb(153, 82, 228), transparent);
   }
 
   .education-layout {
