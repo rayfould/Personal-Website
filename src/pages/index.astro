@@ -38,7 +38,17 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
       top: 1.5rem;
       left: 1.5rem;
       z-index: 9999;
-      transition: opacity 0.3s;
+      transition: all 0.3s ease;
+      padding: 0;
+      border-radius: 8px;
+    }
+
+    .portfolio-logo.scrolled {
+      background-color: rgba(86, 81, 81, 0.2);
+      backdrop-filter: blur(20px);
+      top: .75rem;
+      left: .75rem;
+      padding: 0.75rem;
     }
 
     .portfolio-logo img {
@@ -47,8 +57,9 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
       display: block;
     }
 
-    .portfolio-logo:hover {
-      opacity: 0.8;
+    .portfolio-logo:hover img {
+      filter: brightness(0) saturate(100%) invert(47%) sepia(85%) saturate(2274%) hue-rotate(239deg) brightness(98%) contrast(97%);
+      transition: none;
     }
 
     .home-wrapper {
@@ -56,4 +67,16 @@ import ReachOutSection from '@/components/sections/ReachOutSection.astro';
       min-height: 110vh;
     }
   </style>
+
+  <script>
+    const logo = document.querySelector('.portfolio-logo');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0) {
+        logo?.classList.add('scrolled');
+      } else {
+        logo?.classList.remove('scrolled');
+      }
+    });
+  </script>
 </html>
