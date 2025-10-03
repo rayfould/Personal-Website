@@ -294,7 +294,29 @@ src/pages/
   * Each nav link has pill-shaped background that appears when section is active
 - Logo implementation:
   * Replaced "Portfolio" text with custom logo image (rdy_logo_white.png)
-  * Logo sized to 3rem height, maintains aspect ratio
+  * Logo sized to 1rem height for compact display
   * Hover effect changes opacity instead of color
   * Logo remains clickable and navigates to home section
+  * Nav styling adjusted for single-line display (reduced gaps, padding, font size)
+- Projects section styling:
+  * Added 4rem top margin for spacing from home section
+  * Applied dark gray background (#0a0a0a) to distinguish from black home section
+  * Added skills section between title and project cards:
+    - "SKILLS" text written vertically (upright orientation, 1.5rem font, bold)
+    - Title spans full height of divider with centered alignment
+    - Vertical divider (1px, full height, #333 color)
+    - Skills organized into 3 categories: Languages, Frameworks & Libraries, Technologies & Tools
+    - 26 total skills across all categories
+    - Each skill has a colored circular icon (8px) using official brand colors
+    - White rounded tags (8px border-radius) with dark text
+    - Category titles in uppercase gray with letter spacing
+    - Smooth hover effect: purple background (rgb(153, 82, 228)) with white text
+  * Optimized project cards layout for better aspect ratio:
+    - Fixed 3-column grid layout (repeat(3, 1fr))
+    - Reduced image height from 200px to 180px
+    - Reduced content padding from 1.5rem to 1.25rem
+    - Reduced content gap from 1rem to 0.75rem
+    - Reduced title font size from 1.5rem to 1.25rem
+    - Card gap remains 1.5rem
+  * Responsive design: 3 columns → 2 columns (tablet) → 1 column (mobile)
 
