@@ -248,6 +248,36 @@ const skillIcons: Record<string, string> = {
     gap: 1.5rem;
   }
 
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    section {
+      padding: 2rem 1rem 15vh 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .skills-section {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .skills-title {
+      writing-mode: horizontal-tb;
+      text-orientation: mixed;
+      height: auto;
+    }
+
+    .divider {
+      display: none;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 1024px) {
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);

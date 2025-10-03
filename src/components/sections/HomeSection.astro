@@ -92,6 +92,8 @@ import Terminal from '@/components/Terminal.astro';
     .two-column-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
+      margin-top: -5rem;
+      margin-left: 0;
     }
 
     .intro-text {
@@ -100,8 +102,17 @@ import Terminal from '@/components/Terminal.astro';
   }
 
   @media (max-width: 768px) {
+    .two-column-layout {
+      margin-top: 0;
+      margin-left: 0;
+    }
+
     .intro-text {
       font-size: 2rem;
+    }
+
+    .content {
+      padding: 0 1rem;
     }
   }
 </style>

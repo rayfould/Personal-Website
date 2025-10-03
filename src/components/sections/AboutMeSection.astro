@@ -183,6 +183,24 @@
   .card:where(:hover, :focus-within)::after {
     opacity: 1;
   }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    section {
+      padding: 2rem 1rem 15vh 1rem !important;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 100%;
+    }
+  }
 </style>
 
 <script>
