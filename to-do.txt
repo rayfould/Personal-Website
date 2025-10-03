@@ -170,6 +170,40 @@ README.md, to-do.txt
 - [DONE] Made separator line much thicker (4px stroke width)
 - [DONE] Muted colors with dark film effect (dark orange and dark red)
 - [DONE] Adjusted hover to brighten muted colors slightly
+- [DONE] Added lift animation on hover (translateY -10px)
+- [DONE] Added colorful glowing border effect using drop-shadow filters (4px thick)
+- [DONE] Used cubic-bezier easing for smooth bouncy animation
+- [DONE] Added subtle brightness increase on hover (1.05)
+- [DONE] Enhanced with vibrant multi-layered shadow effects (border + multiple glows)
+- [DONE] Removed overflow:hidden to allow shadows to be visible
+- [DONE] Added margin-bottom to container for shadow clearance
+- [DONE] Cleared education section content for redesign
+- [DONE] Created two-column layout (image left, text right)
+- [DONE] Implemented spotlight/flashlight effect with cursor tracking
+- [DONE] Added dark overlay with circular mask that follows pointer
+- [DONE] Added education content with Boston University details
+- [DONE] Added border and drop shadow to image (always visible)
+- [DONE] Made spotlight effect more concentrated (100px radius)
+- [DONE] Added vibrant red neon border effect on hover with multi-layered glow
+- [DONE] Reduced overlay opacity to 0.6 for stronger reveal effect
+- [DONE] Made spotlight circle sharper with less feathering (85% to 100% transition)
+- [DONE] Added brightness boost layer to revealed area for stronger contrast
+- [DONE] Changed lifting effect to scale enlargement (scale 1.05) that grows in all directions
+- [DONE] Added minimal text column styling with simple left border (2px solid #444)
+- [DONE] Removed key achievements section
+- [DONE] Centered text column content vertically with flexbox
+- [DONE] Created basic vertical timeline mockup with alternating boxes
+- [DONE] Added timeline dots and connecting line
+- [DONE] Added 6 mock timeline events with dates and descriptions
+- [DONE] Increased timeline box sizes (48% width, 2rem padding)
+- [DONE] Increased font sizes (h3: 1.75rem, date: 1rem, description: 1.1rem)
+- [DONE] Increased container max-width to 1400px
+- [DONE] Fixed box alignment to center line with calculated margins
+- [DONE] Duplicated education section for Virginia Tech
+- [DONE] Added Virginia Tech as Master's program (2023 - Present)
+- [DONE] Updated spotlight script to handle multiple image sections
+- [DONE] Added spacing between education entries (5rem margin-bottom)
+- [DONE] Flipped Boston University section to have image on right using RTL direction
 
 ### FILES CREATED
 - src/types/project.ts
