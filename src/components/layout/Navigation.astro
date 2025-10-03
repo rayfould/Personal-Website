@@ -9,18 +9,47 @@ const navItems = [
 ];
 ---
 
+<!-- Desktop Navigation -->
 <nav id="main-nav">
   <ul>
     {navItems.map((item) => (
       <li>
-        <a href={item.href}>{item.label}</a>
+        <a href={item.href} class="nav-link">{item.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<!-- Mobile Hamburger Button -->
+<button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-overlay" class="mobile-overlay"></div>
+
+<!-- Mobile Menu -->
+<nav id="mobile-nav" class="mobile-nav">
+  <button id="close-menu-btn" class="close-btn" aria-label="Close menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <ul>
+    {navItems.map((item) => (
+      <li>
+        <a href={item.href} class="mobile-nav-link">{item.label}</a>
       </li>
     ))}
   </ul>
 </nav>
 
 <style>
-  nav {
+  /* Desktop Navigation */
+  nav#main-nav {
     position: absolute;
     top: 80vh;
     left: 50%;
@@ -37,7 +66,7 @@ const navItems = [
     transition: border-color 0.3s;
   }
 
-  nav.stuck {
+  nav#main-nav.stuck {
     border-color: #27272a;
   }
 
@@ -53,7 +82,7 @@ const navItems = [
     position: relative;
   }
 
-  a {
+  .nav-link {
     color: #e3e3e3;
     text-decoration: none;
     transition: all 0.3s;
@@ -64,18 +93,163 @@ const navItems = [
     white-space: nowrap;
   }
 
-  a:hover {
+  .nav-link:hover {
     color: #a855f7;
   }
 
-  a.active {
+  .nav-link.active {
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
+  }
+
+  /* Hamburger Button - Hidden on desktop */
+  .hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
+    z-index: 2000;
+    background: rgba(23, 22, 22, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid #27272a;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: all 0.3s;
+  }
+
+  .hamburger-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: #a855f7;
+  }
+
+  .hamburger-btn span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: #e3e3e3;
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+
+  .hamburger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(0.5rem, 0.5rem);
+  }
+
+  .hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(0.5rem, -0.5rem);
+  }
+
+  /* Mobile Overlay */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-overlay.active {
+    opacity: 1;
+  }
+
+  /* Mobile Navigation */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 220px;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid #27272a;
+    z-index: 2000;
+    padding: 4rem 2rem 2rem;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+
+  .mobile-nav.active {
+    right: 0;
+  }
+
+  .mobile-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-nav-link {
+    color: #e3e3e3;
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 1rem;
+    display: block;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:focus {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.3);
+  }
+
+  .mobile-nav-link.active {
+    background: rgba(168, 85, 247, 0.2);
+    color: white;
+    border-color: #a855f7;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 3.5rem;
+    background: transparent;
+    border: none;
+    color: #e3e3e3;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s;
+    border-radius: 0.5rem;
+  }
+
+  .close-btn:hover {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    /* Hide desktop nav */
+    nav#main-nav {
+      display: none;
+    }
+
+    /* Show mobile elements */
+    .hamburger-btn,
+    .mobile-overlay,
+    .mobile-nav {
+      display: flex;
+    }
   }
 </style>
 
 <script>
-  // Make nav sticky once it reaches the top
+  // Desktop Navigation - Make nav sticky once it reaches the top
   const nav = document.getElementById('main-nav');
   const navOffset = nav?.offsetTop || 0;
 
@@ -93,9 +267,9 @@ const navItems = [
     }
   });
 
-  // Track active section
+  // Track active section for both desktop and mobile
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
   function setActiveLink() {
     let currentSection = '';
@@ -119,5 +293,49 @@ const navItems = [
 
   window.addEventListener('scroll', setActiveLink);
   window.addEventListener('load', setActiveLink);
+
+  // Mobile Menu Functionality
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openMenu() {
+    hamburgerBtn?.classList.add('active');
+    mobileNav?.classList.add('active');
+    mobileOverlay?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    hamburgerBtn?.classList.remove('active');
+    mobileNav?.classList.remove('active');
+    mobileOverlay?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  hamburgerBtn?.addEventListener('click', () => {
+    if (mobileNav?.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeMenuBtn?.addEventListener('click', closeMenu);
+  mobileOverlay?.addEventListener('click', closeMenu);
+
+  // Close menu when clicking nav link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileNav?.classList.contains('active')) {
+      closeMenu();
+    }
+  });
 </script>
 
