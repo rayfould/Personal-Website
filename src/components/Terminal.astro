@@ -171,6 +171,110 @@
   .terminal-body::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .terminal-window {
+      height: 300px;
+      font-size: 0.85rem;
+    }
+
+    .terminal-header {
+      padding: 0.5rem 0.75rem;
+    }
+
+    .btn {
+      width: 10px;
+      height: 10px;
+    }
+
+    .terminal-title {
+      font-size: 0.75rem;
+    }
+
+    .terminal-body {
+      padding: 0.75rem;
+    }
+
+    .terminal-output {
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .welcome-message {
+      font-size: 0.95rem;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+    }
+
+    .prompt {
+      font-size: 0.85rem;
+    }
+
+    .terminal-input {
+      font-size: 0.85rem;
+    }
+
+    .response {
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .terminal-window {
+      height: 250px;
+    }
+
+    .terminal-header {
+      padding: 0.4rem 0.6rem;
+    }
+
+    .btn {
+      width: 8px;
+      height: 8px;
+    }
+
+    .terminal-buttons {
+      gap: 0.4rem;
+    }
+
+    .terminal-title {
+      font-size: 0.7rem;
+    }
+
+    .terminal-body {
+      padding: 0.5rem;
+    }
+
+    .terminal-output {
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .welcome-message {
+      font-size: 0.85rem;
+    }
+
+    .hint {
+      font-size: 0.7rem;
+    }
+
+    .prompt {
+      font-size: 0.75rem;
+    }
+
+    .terminal-input {
+      font-size: 0.75rem;
+    }
+
+    .response {
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+  }
 </style>
 
 <script>
