@@ -53,6 +53,7 @@ import Terminal from '@/components/Terminal.astro';
     display: flex;
     flex-direction: column;
     justify-content: center;
+    pointer-events: auto;
   }
 
   .right-column {
@@ -109,7 +110,8 @@ import Terminal from '@/components/Terminal.astro';
   document.addEventListener('DOMContentLoaded', () => {
     const typedTextElement = document.getElementById('typed-text');
     const articleElement = document.getElementById('article');
-    if (!typedTextElement || !articleElement) return;
+    const introText = document.querySelector('.intro-text');
+    if (!typedTextElement || !articleElement || !introText) return;
 
     const words = [
       'Integration Engineer',
@@ -127,6 +129,8 @@ import Terminal from '@/components/Terminal.astro';
     let isDeleting = false;
     let isTypingArticle = true;
     let typingSpeed = 60;
+    let isPaused = false;
+    let timeoutId: number | null = null;
 
     function getArticle(word: string): string {
       // No article for words starting with "The"
@@ -138,6 +142,8 @@ import Terminal from '@/components/Terminal.astro';
     }
 
     function type() {
+      if (isPaused) return; // Don't continue if paused
+
       const currentWord = words[wordIndex];
       const currentArticle = getArticle(currentWord);
 
@@ -188,8 +194,22 @@ import Terminal from '@/components/Terminal.astro';
         }
       }
 
-      setTimeout(type, typingSpeed);
+      timeoutId = setTimeout(type, typingSpeed);
     }
+
+    // Pause on hover
+    introText.addEventListener('mouseenter', () => {
+      isPaused = true;
+      if (timeoutId !== null) {
+        clearTimeout(timeoutId);
+      }
+    });
+
+    // Resume on unhover
+    introText.addEventListener('mouseleave', () => {
+      isPaused = false;
+      type(); // Resume the animation
+    });
 
     // Start typing animation
     type();
