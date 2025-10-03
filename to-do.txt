@@ -268,6 +268,33 @@ src/pages/
 - Build out Home section with introduction
 - Create Reach Out/Contact section
 - Add filtering/sorting functionality to projects grid
-- Style navigation bar
 - Implement smooth scroll spy for active nav state
+
+**Session 3 Work in Progress:**
+- Navigation redesign:
+  * Split Portfolio logo (fixed top-left) from nav links
+  * Positioned nav at 80vh down the home page, centered
+  * JavaScript makes nav stick to top once scrolled past 80vh
+  * Semi-transparent black background with blur effect
+  * Purple hover states on all links
+  * Added "About Me" to nav items
+  * Border divider only appears when nav is stuck to top (not on home page)
+- Home section enhancements:
+  * Increased home section height to 110vh (from 100vh)
+  * Particles background extends 30vh below the navigation header
+  * Creates overlay effect where nav sits on top of particles animation
+- Navigation styling refinements:
+  * Changed nav to pill-shaped design (border-radius: 9999px)
+  * Nav width now fits content instead of spanning full page width
+  * Centered using left: 50% + translateX(-50%)
+  * Border appears on all sides when stuck (not just bottom)
+  * Sticky nav positioned 1rem from top (not flush) for better visual spacing
+  * Frosted glass effect: 30% opacity background with 20px blur (instead of solid black)
+  * Active section tracking: nav links highlight with white background based on scroll position
+  * Each nav link has pill-shaped background that appears when section is active
+- Logo implementation:
+  * Replaced "Portfolio" text with custom logo image (rdy_logo_white.png)
+  * Logo sized to 3rem height, maintains aspect ratio
+  * Hover effect changes opacity instead of color
+  * Logo remains clickable and navigates to home section
 
