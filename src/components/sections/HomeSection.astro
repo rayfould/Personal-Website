@@ -1,5 +1,6 @@
 ---
 import ParticlesBackground from '@/components/ParticlesBackground.astro';
+import Terminal from '@/components/Terminal.astro';
 ---
 
 <section id="home">
@@ -12,7 +13,7 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
         </h1>
       </div>
       <div class="right-column">
-        <!-- Terminal will go here later -->
+        <Terminal />
       </div>
     </div>
   </div>
@@ -36,6 +37,7 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
     width: 100%;
     max-width: 1400px;
     padding: 0 2rem;
+    pointer-events: none;
   }
 
   .two-column-layout {
@@ -44,13 +46,17 @@ import ParticlesBackground from '@/components/ParticlesBackground.astro';
     gap: 4rem;
     align-items: center;
     margin-top: -10rem;
-    margin-left: -10rem;
+    margin-left: -2rem;
   }
 
   .left-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .right-column {
+    pointer-events: auto;
   }
 
   .intro-text {
