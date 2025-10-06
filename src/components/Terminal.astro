@@ -278,6 +278,12 @@
 </style>
 
 <script>
+  // Dynamically import confetti to avoid module loading issues
+  let confetti;
+  import('canvas-confetti').then(module => {
+    confetti = module.default;
+  });
+
   const commands = {
     help: `Available commands:\n\nhelp      - Show this message\nabout     - Learn about me\nskills    - View my technical skills\nprojects  - See my featured projects\neducation - View my education background\ncontact   - Get my contact information\nclear     - Clear the terminal\n\nTry typing any command!`,
 
@@ -294,17 +300,25 @@
     clear: '__CLEAR__',
 
     // Easter eggs
-    sudo: `Nice try! But you don't have sudo privileges here. 😄`,
+    anything: 'I think you forgot an exclamation point there, ey?',
+
+    'anything!': `🎉 Congratulations. A dad joke. Hope you're proud of yourself. 🎉`,
     
-    'rm -rf /': `Error: Permission denied. Thankfully! 😅`,
+    sudo: `Yeah not happening bud.`,
+    
+    'rm -rf /': `Error: Permission denied. Obviously.`,
     
     exit: `You can't escape that easily! Try 'clear' instead.`,
     
     whoami: `You are a curious visitor exploring Rudy's portfolio!`,
     
-    ls: `projects/  education/  skills/  about.txt  contact.txt`,
+    ls: `projects/  education/  skills/  about.txt  contact.txt  redacted/`,
     
     pwd: `/home/rudy/portfolio`,
+    
+    'cd redacted': '__OPEN_LINK__https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    
+    'hello world': `Aren't you a bit too young to be browsing the internet?`,
   };
 
   const terminalBody = document.getElementById('terminal-body');
@@ -353,7 +367,43 @@
         terminalOutput.innerHTML = '';
       }
     } else if (commands[command]) {
-      addOutput(commands[command], 'response');
+      const response = commands[command];
+      
+      // Check if this is a link command
+      if (response.startsWith('__OPEN_LINK__')) {
+        const url = response.replace('__OPEN_LINK__', '');
+        addOutput(`Accessing classified files... 🔓`, 'response');
+        setTimeout(() => {
+          window.open(url, '_blank');
+        }, 500);
+      } else {
+        addOutput(response, 'response');
+      }
+      
+      // Trigger confetti for specific commands
+      if (confetti && (command === 'anything!')) {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+        
+        // Extra burst for party mode
+        if (command === 'party') {
+          setTimeout(() => confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+          }), 200);
+          setTimeout(() => confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+          }), 400);
+        }
+      }
     } else {
       addOutput(`Command not found: ${command}. Type 'help' for available commands.`, 'response error');
     }
