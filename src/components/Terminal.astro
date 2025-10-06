@@ -277,13 +277,10 @@
   }
 </style>
 
-<script>
-  // Dynamically import confetti to avoid module loading issues
-  let confetti;
-  import('canvas-confetti').then(module => {
-    confetti = module.default;
-  });
+<!-- Load confetti from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
+<script>
   const commands = {
     help: `Available commands:\n\nhelp      - Show this message\nabout     - Learn about me\nskills    - View my technical skills\nprojects  - See my featured projects\neducation - View my education background\ncontact   - Get my contact information\nclear     - Clear the terminal\n\nTry typing any command!`,
 
@@ -381,7 +378,7 @@
       }
       
       // Trigger confetti for specific commands
-      if (confetti && (command === 'anything!')) {
+      if (typeof confetti !== 'undefined' && (command === 'anything!')) {
         confetti({
           particleCount: 100,
           spread: 70,
