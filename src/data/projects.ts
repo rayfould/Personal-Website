@@ -27,7 +27,7 @@ export const projects: Project[] = [
     featured: true,
     progress: 90,
     github: 'https://github.com/rayfould/Muse',
-    link: 'https://muse-app.com',
+    link: '',
     image: '/images/logo/muse_logo.png',
     imageScale: 0.5
   },
