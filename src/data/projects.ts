@@ -32,6 +32,19 @@ export const projects: Project[] = [
     imageScale: 0.5
   },
   {
+    id: 'jasesace',
+    title: 'JasesAce.com',
+    description: 'Contracted as both designer and developer to create and build the full website for a YouTube creator, focused on sponsor promotion and deal visibility. One of my first paid solo projects, delivered end-to-end from visual direction to implementation.',
+    tags: ['JavaScript', 'HTML/CSS', 'Git'],
+    category: 'Client Web Design & Development',
+    date: '2025-04',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    link: 'https://JasesAce.com',
+    image: '/images/logo/jase_logo.png'
+  },
+  {
     id: 'nl2sql-engine',
     title: 'QueryMind NL2SQL Engine',
     description: 'Advanced natural language to SQL conversion engine with vector database integration achieving 85% query accuracy. Parses conversational input and maps natural language to complex database schemas. Built scalable query processing pipeline handling multiple database types. Confidential - developed for company currently using in production. Happy to discuss architecture and approach.',
@@ -60,21 +73,6 @@ export const projects: Project[] = [
     imageScale: 0.6
   },
   {
-    id: 'coursebranch',
-    title: 'CourseBranch',
-    description: 'Visual course planning platform enabling students to track major progress and requirements through interactive tree diagrams. Features user reviews for courses and professors, prerequisite mapping, and semester planning tools. Makes course registration more intuitive with accessible progress visualization.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'JavaScript', 'HTML/CSS', 'Git',],
-    category: 'Full-Stack Development',
-    date: '2024-09',
-    status: 'in-progress',
-    featured: true,
-    progress: 15,
-    github: 'https://github.com/rayfould/coursebranch',
-    link: 'https://coursebranch.com',
-    image: '/images/logo/CourseBranch_logo.png',
-    imageScale: 1.3
-  },
-  {
     id: 'portfolio-website',
     title: 'Portfolio Website',
     description: 'Modern, interactive portfolio built with Astro and React featuring dynamic typing animations, interactive terminal interface, skill-based project filtering, and custom pixel canvas components. Includes particle.js background effects, frosted glass UI elements, and responsive design across all breakpoints.',
@@ -88,6 +86,18 @@ export const projects: Project[] = [
     link: 'https://rudolfrissling.com',
     image: '/images/logo/rdy_logo_white.png',
     imageScale: 0.6
+  },
+  {
+    id: 'thornborn',
+    title: 'Thornborn.co',
+    description: 'Hired as the website designer for a fashion e-commerce brand and delivered a refined, minimalist storefront with collection-first navigation and polished product storytelling. Led visual direction, layout hierarchy, and brand-consistent UX to create a premium shopping experience across desktop and mobile.',
+    tags: ['JavaScript', 'HTML/CSS', 'Git'],
+    category: 'Web Design & E-Commerce',
+    date: '2026-01',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    link: 'https://thornborn.co',
+    image: '/images/logo/thornborn_cover.jpg'
   }
 ];
-

@@ -39,6 +39,24 @@
         <div class="timeline-dot"></div>
       </div>
 
+      <div class="timeline-item left" data-timeline-animate data-color="bright-orange">
+        <div class="timeline-content">
+          <h3>Built JasesAce.com</h3>
+          <p class="date">April 2025</p>
+          <p class="description">Contracted as designer and developer to build a full YouTube creator website focused on sponsor advertising and deal visibility</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item right" data-timeline-animate data-color="cyan">
+        <div class="timeline-content">
+          <h3>Built QueryMind NL2SQL Engine</h3>
+          <p class="date">Summer 2025</p>
+          <p class="description">Developed a production natural-language-to-SQL system with high-accuracy schema mapping for enterprise workflows</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
       <div class="timeline-item left" data-timeline-animate data-color="blue">
         <div class="timeline-content">
           <h3>Lawyer.com Internship</h3>
@@ -57,20 +75,20 @@
         <div class="timeline-dot"></div>
       </div>
 
-      <div class="timeline-item left" data-timeline-animate data-color="red">
-        <div class="timeline-content">
-          <h3>Started CourseBranch</h3>
-          <p class="date">Fall 2025</p>
-          <p class="description">Building visual course planning platform for student progress tracking</p>
-        </div>
-        <div class="timeline-dot"></div>
-      </div>
-
-      <div class="timeline-item right" data-timeline-animate data-color="purple">
+      <div class="timeline-item left" data-timeline-animate data-color="purple">
         <div class="timeline-content">
           <h3>Built Portfolio Website</h3>
           <p class="date">October 2025</p>
           <p class="description">Created interactive portfolio with dynamic animations and terminal interface</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item right" data-timeline-animate data-color="white">
+        <div class="timeline-content">
+          <h3>Hired to Design Thornborn.co</h3>
+          <p class="date">January 2026</p>
+          <p class="description">Contracted as website designer for the brand and delivered a premium e-commerce experience with minimalist UX and brand-forward visual direction</p>
         </div>
         <div class="timeline-dot"></div>
       </div>
@@ -201,6 +219,24 @@
     color: #ffb380;
   }
 
+  .timeline-item[data-color="bright-orange"] .timeline-content:hover {
+    border-color: #ff7a00;
+    box-shadow: 0 8px 30px rgba(255, 122, 0, 0.4);
+  }
+
+  .timeline-item[data-color="bright-orange"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #ff7a00;
+    box-shadow: 0 0 25px rgba(255, 122, 0, 0.85);
+  }
+
+  .timeline-item[data-color="bright-orange"] .timeline-content:hover h3 {
+    color: #ff7a00;
+  }
+
+  .timeline-item[data-color="bright-orange"] .timeline-content:hover .date {
+    color: #ffd0a3;
+  }
+
   .timeline-item[data-color="red"] .timeline-content:hover {
     border-color: #ff0040;
     box-shadow: 0 8px 30px rgba(255, 0, 64, 0.3);
@@ -217,6 +253,24 @@
 
   .timeline-item[data-color="red"] .timeline-content:hover .date {
     color: #ff6690;
+  }
+
+  .timeline-item[data-color="white"] .timeline-content:hover {
+    border-color: #ffffff;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.35);
+  }
+
+  .timeline-item[data-color="white"] .timeline-content:hover ~ .timeline-dot {
+    background-color: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+  }
+
+  .timeline-item[data-color="white"] .timeline-content:hover h3 {
+    color: #ffffff;
+  }
+
+  .timeline-item[data-color="white"] .timeline-content:hover .date {
+    color: #e5e7eb;
   }
 
   .timeline-item[data-color="blue"] .timeline-content:hover {
@@ -455,5 +509,3 @@
     });
   });
 </script>
-
-
