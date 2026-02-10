@@ -98,6 +98,20 @@ export const projects: Project[] = [
     featured: true,
     progress: 100,
     link: 'https://thornborn.co',
-    image: '/images/logo/thornborn_cover.jpg'
+    image: '/images/logo/thornborn_cover.jpg',
+    imageScale: 1.7
+  },
+  {
+    id: 'syncora',
+    title: 'Syncora',
+    description: 'A platform focused on persistent memory across devices, with shared project context, reliable continuity between work sessions, and streamlined team coordination across distributed engineering workflows.',
+    tags: ['TypeScript', 'Node.js', 'Git'],
+    category: 'B2B Developer Tooling',
+    date: '2026-02',
+    status: 'in-progress',
+    featured: true,
+    progress: 20,
+    image: '/images/logo/Syncora_logo_full-no-bg.png',
+    imageScale: 1.5
   }
 ];
