@@ -50,7 +50,7 @@ const skillIcons: Record<string, string> = {
 
 <section id="projects">
   <div class="container">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title" data-ghost="WORK">Projects</h2>
     
     <div class="skills-section">
       <h3 class="skills-title">SKILLS</h3>
@@ -101,27 +101,6 @@ const skillIcons: Record<string, string> = {
   .container {
     max-width: 1200px;
     margin: 0 auto;
-  }
-
-  .section-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 4rem;
-    text-align: center;
-    color: white;
-    position: relative;
-    padding-bottom: 1rem;
-  }
-
-  .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, rgb(153, 82, 228), transparent);
   }
 
   .skills-section {
@@ -254,9 +233,6 @@ const skillIcons: Record<string, string> = {
       padding: 2rem 1rem 15vh 1rem;
     }
 
-    .section-title {
-      font-size: 2rem;
-    }
 
     .skills-section {
       flex-direction: column;

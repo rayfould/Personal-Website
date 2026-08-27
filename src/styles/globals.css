@@ -28,3 +28,70 @@
   }
 }
 
+
+/* ---------------------------------------------------------------------------
+   Section titles
+   One definition for all four sections; each used to carry an identical copy
+   of the same rule plus a 100px gradient stub underneath.
+
+   An oversized outlined word sits behind each heading. It carries weight
+   without introducing another colour, and it gives the headings something to
+   sit against instead of floating in empty space. The word comes from the
+   heading's data-ghost attribute.
+--------------------------------------------------------------------------- */
+
+.section-title {
+  position: relative;
+  /* new stacking context so the ghost's z-index:-1 stays above the section
+     background rather than disappearing behind it */
+  isolation: isolate;
+  margin-bottom: 4rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  text-align: center;
+  color: #fff;
+}
+
+.section-title::before {
+  content: attr(data-ghost);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  font-size: 3.2em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.11);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The ghost settles as the heading arrives. Written so the visible state is
+   the default: browsers without scroll timelines, and anyone who asked for
+   reduced motion, just get the finished thing. */
+@keyframes ghost-settle {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.16);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section-title::before {
+      animation: ghost-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 75%;
+    }
+  }
+}
