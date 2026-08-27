@@ -124,7 +124,9 @@ export const projects: Project[] = [
     status: 'completed',
     featured: true,
     progress: 100,
-    confidential: true
+    confidential: true,
+    image: '/images/logo/crmhub_logo.png',
+    imageScale: 0.85
   },
   {
     id: 'blackvertex',
@@ -136,6 +138,8 @@ export const projects: Project[] = [
     status: 'in-progress',
     featured: true,
     progress: 100,
-    link: 'https://blackvertex.co'
+    link: 'https://blackvertex.co',
+    image: '/images/logo/blackvertex_logo.png',
+    imageScale: 0.55
   }
 ];
