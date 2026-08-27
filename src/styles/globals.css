@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+  /* how far a section fades in from the previous section's colour */
+  --seam: clamp(96px, 14vh, 200px);
+}
 
 @layer base {
   * {
@@ -17,7 +20,8 @@
   }
 
   body {
-    @apply bg-black text-white;
+    background-color: #000;
+    color: #fff;
     overflow-x: hidden;
     width: 100%;
     position: relative;
