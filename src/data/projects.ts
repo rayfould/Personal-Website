@@ -113,5 +113,29 @@ export const projects: Project[] = [
     progress: 20,
     image: '/images/logo/Syncora_logo_full-no-bg.png',
     imageScale: 1.5
+  },
+  {
+    id: 'crm-hub',
+    title: 'CRM Hub',
+    description: 'Multi-tenant CRM automation platform deployed across 5 law firms, processing 5,000+ clients at approximately 2,000 per month. Built fault-tolerant infrastructure with 99.5% availability, an engine powering 500+ production workflows, and a custom Lawmatics GraphQL integration. Confidential - developed for Lawyer.com and currently used in production.',
+    tags: ['GraphQL', 'CRM Automation', 'Workflow Orchestration', 'Systems Engineering'],
+    category: 'AI Product Engineering & CRM Automation',
+    date: '2025-05',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    confidential: true
+  },
+  {
+    id: 'blackvertex',
+    title: 'BlackVertex',
+    description: '$10K+ revenue brand and software studio delivering strategy, identity, web, and product engineering. Built an internal AI platform for research, personalized outreach, and persistent knowledge while launching ventures including Creator Atlas, Syncora, and Thornborn.',
+    tags: ['TypeScript', 'JavaScript', 'Node.js', 'HTML/CSS', 'Git'],
+    category: 'Founder, Brand & Software Engineering',
+    date: '2026-01',
+    status: 'in-progress',
+    featured: true,
+    progress: 100,
+    link: 'https://blackvertex.co'
   }
 ];
