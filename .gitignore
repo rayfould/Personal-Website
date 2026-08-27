@@ -2,3 +2,20 @@ node_modules/
 dist/
 .env
 
+# AI agent tooling — installed per-developer, not part of the project
+.agents/
+.claude/
+.skills/
+skills-lock.json
+
+# Other assistants that write into the repo root
+.cursor/
+.cursorrules
+.cursorignore
+.windsurf/
+.windsurfrules
+.codex/
+.gemini/
+.continue/
+.codeium/
+.aider*
