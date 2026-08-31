@@ -2,7 +2,7 @@
 
 :root {
   /* how far a section fades in from the previous section's colour */
-  --seam: clamp(96px, 14vh, 200px);
+  --seam: clamp(140px, 22vh, 300px);
 }
 
 @layer base {
@@ -45,7 +45,8 @@
   /* new stacking context so the ghost's z-index:-1 stays above the section
      background rather than disappearing behind it */
   isolation: isolate;
-  margin-bottom: 4rem;
+  padding-block: clamp(1.75rem, 5vh, 3.5rem);
+  margin-bottom: clamp(4rem, 9vh, 7rem);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.025em;
