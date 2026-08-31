@@ -5,46 +5,59 @@ import { projects } from '@/data/projects';
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['Java', 'C#', 'Python', 'JavaScript', 'TypeScript', 'HTML/CSS', 'SQL', 'OCaml', 'Kotlin']
+    skills: ['Python', 'TypeScript', 'JavaScript', 'C#', 'SQL', 'Kotlin', 'HTML/CSS']
   },
   {
-    title: 'Frameworks & Libraries',
-    skills: ['.NET Core', 'React', 'JUnit', 'PyTorch', 'FastAPI', 'Node.js', 'Django', 'Jetpack Compose']
+    title: 'AI & Data',
+    skills: ['LLM Agents', 'RAG', 'Vector Search', 'NLP', 'Prompt/Context Engineering', 'PostgreSQL', 'Supabase', 'Firestore']
   },
   {
-    title: 'Technologies & Tools',
-    skills: ['Git', 'Docker', 'Unix', 'PostgreSQL', 'Heroku', 'Vercel', 'Supabase', 'Astro', 'Tailwind CSS']
+    title: 'Frameworks & Backend',
+    skills: ['FastAPI', 'ASP.NET Core', 'Node.js', 'NestJS', 'Next.js', 'React', 'GraphQL', 'PyTorch', 'Jetpack Compose', 'Astro', 'Tailwind CSS']
+  },
+  {
+    title: 'Cloud & DevOps',
+    skills: ['Git', 'GCP (Cloud Run)', 'Vercel', 'DigitalOcean']
   }
 ];
 
 // Icon mapping for skills - using Simple Icons color scheme
 const skillIcons: Record<string, string> = {
-  'Java': '#007396',
-  'C#': '#239120',
+  // Languages
   'Python': '#3776AB',
-  'JavaScript': '#F7DF1E',
   'TypeScript': '#3178C6',
-  'HTML/CSS': '#E34F26',
+  'JavaScript': '#F7DF1E',
+  'C#': '#239120',
   'SQL': '#4479A1',
-  'OCaml': '#EC6813',
   'Kotlin': '#7F52FF',
-  '.NET Core': '#512BD4',
-  'React': '#61DAFB',
-  'JUnit': '#25A162',
-  'PyTorch': '#EE4C2C',
-  'FastAPI': '#009688',
-  'Node.js': '#339933',
-  'Django': '#092E20',
-  'Git': '#F05032',
-  'Docker': '#2496ED',
-  'Unix': '#000000',
+  'HTML/CSS': '#E34F26',
+  // AI & Data — the conceptual ones have no brand colour, so they take the
+  // site's purple rather than an invented logo colour
+  'LLM Agents': 'rgb(153, 82, 228)',
+  'RAG': 'rgb(153, 82, 228)',
+  'Vector Search': 'rgb(153, 82, 228)',
+  'NLP': 'rgb(153, 82, 228)',
+  'Prompt/Context Engineering': 'rgb(153, 82, 228)',
   'PostgreSQL': '#4169E1',
-  'Heroku': '#430098',
-  'Vercel': '#000000',
-  'Jetpack Compose': '#4285F4',
   'Supabase': '#3ECF8E',
+  'Firestore': '#FFCA28',
+  // Frameworks & Backend
+  'FastAPI': '#009688',
+  'ASP.NET Core': '#512BD4',
+  'Node.js': '#339933',
+  'NestJS': '#E0234E',
+  'Next.js': '#FFFFFF',
+  'React': '#61DAFB',
+  'GraphQL': '#E10098',
+  'PyTorch': '#EE4C2C',
+  'Jetpack Compose': '#4285F4',
   'Astro': '#FF5D01',
-  'Tailwind CSS': '#06B6D4'
+  'Tailwind CSS': '#06B6D4',
+  // Cloud & DevOps
+  'Git': '#F05032',
+  'GCP (Cloud Run)': '#4285F4',
+  'Vercel': '#FFFFFF',
+  'DigitalOcean': '#0080FF'
 };
 ---
 
