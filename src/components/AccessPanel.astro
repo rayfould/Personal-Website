@@ -1,0 +1,415 @@
+---
+/**
+ * Hero access panel. Replaces the terminal.
+ *
+ * The capability numbers are not hand-written: each is how many projects in
+ * src/data/projects.ts actually carry that domain's tags, computed at build
+ * time. Add a project and the bars move on their own.
+ *
+ * The restricted rows hold material that is genuinely gated — the Lawyer.com
+ * work is under NDA and the studio figure is private revenue — so the blur is
+ * describing something true rather than decorating.
+ */
+import { projects } from '@/data/projects';
+
+const TOTAL = projects.length;
+
+const DOMAINS: Record<string, string[]> = {
+  Backend: ['FastAPI', 'ASP.NET Core', 'Node.js', 'NestJS', 'GraphQL', 'Python', 'C#'],
+  'AI / ML': ['LLM Agents', 'RAG', 'Vector Search', 'NLP', 'PyTorch', 'Prompt/Context Engineering', 'Ollama'],
+  Frontend: ['React', 'Next.js', 'Astro', 'Tailwind CSS', 'HTML/CSS', 'JavaScript', 'TypeScript'],
+  Data: ['PostgreSQL', 'Supabase', 'Firestore', 'SQL', 'Drizzle ORM'],
+};
+
+const stats = Object.entries(DOMAINS).map(([name, keys]) => {
+  const hits = projects.filter((p) => p.tags.some((t) => keys.includes(t)));
+  return {
+    name,
+    score: hits.length,
+    pct: Math.round((hits.length / TOTAL) * 100),
+    projects: hits.map((p) => p.title),
+  };
+});
+
+const identity = [
+  { k: 'Designation', v: 'Full-Stack AI Engineer' },
+  { k: 'Posting', v: 'Lawyer.com' },
+  { k: 'Venture', v: 'BlackVertex — Founder' },
+];
+
+const restricted = [
+  { k: 'Systems', v: 'CRM Hub · QueryMind NL2SQL' },
+  { k: 'Throughput', v: '5,000+ clients · 500+ workflows · 99.5% uptime' },
+  { k: 'Studio', v: '$10K+ earned · branding suites for brands' },
+];
+---
+
+<article class="panel" id="access-panel">
+  <div class="sheen" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
+
+  <header class="p-head">
+    <div>
+      <span class="p-eyebrow">Personnel</span>
+      <h2 class="p-name">Rudolf Rissling</h2>
+    </div>
+    <span class="p-status"><i aria-hidden="true"></i>Active</span>
+  </header>
+
+  <dl class="p-rows">
+    {
+      identity.map((r) => (
+        <div class="p-row">
+          <dt>{r.k}</dt>
+          <dd>{r.v}</dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  <div class="p-block">
+    <span class="p-eyebrow">Capability index</span>
+    <div class="p-stats">
+      {
+        stats.map((s) => (
+          <div class="p-stat" data-projects={s.projects.join(' · ')} tabindex="0">
+            <span class="s-name">{s.name}</span>
+            <span class="s-track" aria-hidden="true">
+              <span class="s-fill" style={`--pct:${s.pct}%`} />
+            </span>
+            <span class="s-num" data-to={s.score}>0</span>
+          </div>
+        ))
+      }
+    </div>
+    <p class="p-readout" id="p-readout">Hover a capability to see the work behind it</p>
+  </div>
+
+  <div class="p-block p-block-last">
+    <span class="p-eyebrow">Restricted <i class="lock" aria-hidden="true"></i></span>
+    <dl class="p-rows">
+      {
+        restricted.map((c) => (
+          <div class="p-row p-row-locked">
+            <dt>{c.k}</dt>
+            <dd>
+              <button type="button" class="veil" aria-label={`Reveal ${c.k}`}>
+                {c.v}
+              </button>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</article>
+
+<style>
+  .panel {
+    position: relative;
+    overflow: hidden;
+    padding: 1.6rem 1.7rem 1.5rem;
+    border-radius: 18px;
+    /* the frosted treatment the nav pill already uses, pushed further */
+    background:
+      radial-gradient(120% 90% at 100% 0%, rgba(153, 82, 228, 0.16), transparent 55%),
+      rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(22px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.07) inset,
+      0 30px 70px -30px rgba(0, 0, 0, 0.9),
+      0 0 60px -25px rgba(153, 82, 228, 0.5);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+  }
+
+  .sheen {
+    position: absolute;
+    inset: -40% -10%;
+    background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.06) 50%, transparent 58%);
+    animation: sheen 9s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    pointer-events: none;
+  }
+
+  @keyframes sheen {
+    0%, 100% { transform: translateX(-40%); }
+    50% { transform: translateX(40%); }
+  }
+
+  .scan {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(153, 82, 228, 0.5), transparent);
+    animation: scan 7s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes scan {
+    0% { top: -2%; opacity: 0; }
+    12% { opacity: 0.7; }
+    88% { opacity: 0.7; }
+    100% { top: 102%; opacity: 0; }
+  }
+
+  .p-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .p-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', Consolas, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.34);
+  }
+
+  .p-name {
+    margin: 0.42rem 0 0;
+    font-size: 1.42rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #fff;
+  }
+
+  .p-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(153, 82, 228, 0.35);
+    background: rgba(153, 82, 228, 0.11);
+    font-size: 0.74rem;
+    color: #d9c4ff;
+    white-space: nowrap;
+  }
+
+  .p-status i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgb(153, 82, 228);
+    animation: pulse 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(153, 82, 228, 0.55); }
+    70% { box-shadow: 0 0 0 7px rgba(153, 82, 228, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(153, 82, 228, 0); }
+  }
+
+  .p-rows { margin: 0; padding: 0.35rem 0; }
+
+  .p-row {
+    display: grid;
+    grid-template-columns: 7.4rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.5rem 0;
+  }
+
+  .p-row dt {
+    font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', Consolas, monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.32);
+  }
+
+  .p-row dd {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #e9e9ef;
+  }
+
+  .p-block {
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .p-block-last { padding-bottom: 0.1rem; }
+
+  .p-stats { margin-top: 0.85rem; display: grid; gap: 0.62rem; }
+
+  .p-stat {
+    display: grid;
+    grid-template-columns: 5.2rem 1fr 1.4rem;
+    align-items: center;
+    gap: 0.8rem;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .s-name {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.62);
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .p-stat:hover .s-name,
+  .p-stat:focus .s-name { color: #fff; }
+
+  .s-track {
+    position: relative;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .s-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(153, 82, 228, 0.55), rgb(153, 82, 228));
+    box-shadow: 0 0 12px rgba(153, 82, 228, 0.75);
+    transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .panel.ready .s-fill { width: var(--pct); }
+
+  .s-num {
+    font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', Consolas, monospace;
+    font-size: 0.82rem;
+    color: #fff;
+    text-align: right;
+  }
+
+  .p-readout {
+    margin: 0.95rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.4);
+    min-height: 2.3em;
+    transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .p-readout.lit { color: #c9a9ff; }
+
+  .lock {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-bottom-width: 4px;
+  }
+
+  .veil {
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 0.95rem;
+    text-align: left;
+    color: #e9e9ef;
+    cursor: pointer;
+    filter: blur(5.5px);
+    opacity: 0.55;
+    text-shadow: 0 0 14px rgba(153, 82, 228, 0.9);
+    transition:
+      filter 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+      text-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .veil:hover,
+  .veil:focus-visible,
+  .veil.open {
+    filter: blur(0);
+    opacity: 1;
+    text-shadow: 0 0 0 transparent;
+  }
+
+  .veil:focus-visible {
+    outline: 1px solid rgb(153, 82, 228);
+    outline-offset: 5px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 480px) {
+    .panel { padding: 1.25rem 1.15rem 1.15rem; }
+    .p-row { grid-template-columns: 6rem 1fr; gap: 0.7rem; }
+    .p-stat { grid-template-columns: 4.6rem 1fr 1.3rem; gap: 0.6rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sheen,
+    .p-status i { animation: none; }
+    .scan { display: none; }
+    .s-fill { transition: none; }
+    .panel { transition: none; }
+  }
+</style>
+
+<script>
+  const panel = document.getElementById('access-panel');
+
+  // bars fill and figures count up once, shortly after load
+  function reveal() {
+    panel?.classList.add('ready');
+    document.querySelectorAll<HTMLElement>('.s-num').forEach((el) => {
+      const to = Number(el.dataset.to || 0);
+      const start = performance.now();
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / 1100);
+        el.textContent = String(Math.round(to * (1 - Math.pow(1 - t, 3))));
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }
+  setTimeout(reveal, 260);
+
+  // the readout names the projects behind each capability score
+  const readout = document.getElementById('p-readout');
+  const base = readout?.textContent || '';
+  document.querySelectorAll<HTMLElement>('.p-stat').forEach((s) => {
+    const on = () => {
+      if (readout) {
+        readout.textContent = s.dataset.projects || base;
+        readout.classList.add('lit');
+      }
+    };
+    const off = () => {
+      if (readout) {
+        readout.textContent = base;
+        readout.classList.remove('lit');
+      }
+    };
+    s.addEventListener('mouseenter', on);
+    s.addEventListener('focus', on);
+    s.addEventListener('mouseleave', off);
+    s.addEventListener('blur', off);
+  });
+
+  // tap holds the veil open, since hover never fires on touch
+  document.querySelectorAll('.veil').forEach((v) => {
+    v.addEventListener('click', () => v.classList.toggle('open'));
+  });
+
+  // a few degrees of parallax: enough to read as glass, not a gimmick
+  if (panel && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    panel.addEventListener('mousemove', (e) => {
+      const r = panel.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      panel.style.transform = `perspective(900px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+    });
+    panel.addEventListener('mouseleave', () => {
+      panel.style.transform = '';
+    });
+  }
+</script>

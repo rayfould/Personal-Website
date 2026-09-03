@@ -1,6 +1,6 @@
 ---
 import ParticlesBackground from '@/components/ParticlesBackground.astro';
-import Terminal from '@/components/Terminal.astro';
+import AccessPanel from '@/components/AccessPanel.astro';
 ---
 
 <section id="home">
@@ -11,9 +11,17 @@ import Terminal from '@/components/Terminal.astro';
         <h1 class="intro-text">
           Hello, my name is Rudy, and I'm <span id="article">a</span> <span id="typed-text"></span><span class="cursor">|</span>
         </h1>
+        <p class="hero-subtitle">
+          Full-Stack AI Engineer at Lawyer.com and founder of BlackVertex, building
+          production AI automation and the systems around it.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="hero-btn hero-btn-primary">View projects</a>
+          <a href="#reach-out" class="hero-btn">Get in touch</a>
+        </div>
       </div>
       <div class="right-column">
-        <Terminal />
+        <AccessPanel />
       </div>
     </div>
   </div>
@@ -35,7 +43,7 @@ import Terminal from '@/components/Terminal.astro';
     position: relative;
     z-index: 10;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0 2rem;
     pointer-events: none;
   }
@@ -45,8 +53,7 @@ import Terminal from '@/components/Terminal.astro';
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    margin-top: -10rem;
-    margin-left: -2rem;
+    margin-top: -6rem;
   }
 
   .left-column {
@@ -71,6 +78,54 @@ import Terminal from '@/components/Terminal.astro';
   #typed-text {
     color: rgb(153, 82, 228);
     font-weight: 700;
+  }
+
+  .hero-subtitle {
+    margin-top: 1.35rem;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #b6b6bb;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.9rem;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.72rem 1.2rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #e8e8ea;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-btn:hover {
+    border-color: #666;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .hero-btn:active {
+    transform: scale(0.98);
+  }
+
+  .hero-btn-primary {
+    background-color: rgb(153, 82, 228);
+    border-color: rgb(153, 82, 228);
+    color: #fff;
+  }
+
+  .hero-btn-primary:hover {
+    background-color: rgb(133, 66, 205);
+    border-color: rgb(133, 66, 205);
   }
 
   .cursor {
@@ -195,11 +250,15 @@ import Terminal from '@/components/Terminal.astro';
           articleCharIndex--;
           typingSpeed = 30;
         } else {
-          // Everything deleted, move to next word
+          // Everything deleted, move to next word. Place the next article
+          // immediately so line two is never blank between roles.
           isDeleting = false;
-          isTypingArticle = true;
           wordIndex = (wordIndex + 1) % words.length;
-          typingSpeed = 500; // Pause before typing next word
+          const nextArticle = getArticle(words[wordIndex]);
+          articleElement.textContent = nextArticle;
+          articleCharIndex = nextArticle.length;
+          isTypingArticle = false;
+          typingSpeed = 420; // Beat before the next role starts typing
         }
       } else {
         // Type article first, then word
