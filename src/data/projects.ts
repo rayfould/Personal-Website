@@ -2,6 +2,55 @@ import type { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    id: 'crm-hub',
+    title: 'CRM Hub',
+    description: 'Multi-tenant CRM automation platform deployed across 5 law firms, processing 5,000+ clients at approximately 2,000 per month. Built fault-tolerant infrastructure with 99.5% availability, an engine powering 500+ production workflows, and a custom Lawmatics GraphQL integration. Confidential - developed for Lawyer.com and currently used in production.',
+    tags: ['GraphQL', 'CRM Automation', 'Workflow Orchestration', 'Systems Engineering'],
+    category: 'AI Product Engineering & CRM Automation',
+    date: '2025-05',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    confidential: true,
+    image: '/images/logo/crmhub_logo.png'
+  },
+  {
+    id: 'blackvertex',
+    title: 'BlackVertex',
+    description: '$10K+ revenue brand and software studio delivering strategy, identity, web, and product engineering. Built an internal AI platform for research, personalized outreach, and persistent knowledge while launching ventures including Creator Atlas, Syncora, and Thornborn.',
+    tags: ['TypeScript', 'JavaScript', 'Node.js', 'HTML/CSS', 'Git', 'LLM Agents'],
+    category: 'Founder, Brand & Software Engineering',
+    date: '2026-01',
+    status: 'in-progress',
+    featured: true,
+    progress: 100,
+    link: 'https://blackvertex.co',
+    image: '/images/logo/blackvertex_logo.png'
+  },
+  {
+    id: 'syncora',
+    title: 'Syncora',
+    description: 'A platform focused on persistent memory across devices, with shared project context, reliable continuity between work sessions, and streamlined team coordination across distributed engineering workflows.',
+    tags: ['TypeScript', 'Node.js', 'Git', 'NestJS', 'Next.js', 'React', 'PostgreSQL', 'Drizzle ORM', 'RAG', 'Prompt/Context Engineering'],
+    category: 'B2B Developer Tooling',
+    date: '2026-02',
+    status: 'in-progress',
+    featured: true,
+    progress: 20,
+    image: '/images/logo/Syncora_logo_full-no-bg.png'
+  },
+  {
+    id: 'coursebranch',
+    title: 'CourseBranch',
+    description: 'AI-powered academic planning platform for BU students, combining multi-year course planning, transcript imports, prerequisite graphs, degree tracking, and conflict-free timetable generation. Engineered an AI-assisted requirements pipeline converting unstructured university bulletins into provenance-bound degree rules, publishing validated artifacts for 106 majors with 0 blockers.',
+    tags: ['ASP.NET Core', 'Supabase', 'PostgreSQL', 'Ollama', 'Vercel', 'DigitalOcean', 'Git'],
+    category: 'AI Product Engineering & Academic Tooling',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    image: '/images/logo/CourseBranch_logo.png'
+  },
+  {
     id: 'ventaura',
     title: 'Ventaura',
     description: 'Personalized event recommendations platform built with C# backend integrating 5+ APIs, Python DDQL ranking algorithm, and React frontend. Led 3-developer team achieving 10,000+ daily requests with 45% faster data retrieval and sub-second ranking for 1,000+ events.',
@@ -13,8 +62,33 @@ export const projects: Project[] = [
     progress: 100,
     github: 'https://github.com/rayfould/Ventaura',
     link: 'https://ventaura.co',
-    image: '/images/logo/ventaura_logo.png',
-    imageScale: 1.3
+    image: '/images/logo/ventaura_logo.png'
+  },
+  {
+    id: 'nl2sql-engine',
+    title: 'QueryMind NL2SQL Engine',
+    description: 'Advanced natural language to SQL conversion engine with vector database integration achieving 85% query accuracy. Parses conversational input and maps natural language to complex database schemas. Built scalable query processing pipeline handling multiple database types. Confidential - developed for company currently using in production. Happy to discuss architecture and approach.',
+    tags: ['Python', 'FastAPI', 'SQL', 'Git', 'NLP', 'Vector Search'],
+    category: 'AI/ML',
+    date: '2025-07',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    confidential: true,
+    image: '/images/logo/nl2sql_logo.png'
+  },
+  {
+    id: 'gmail-ai-automation',
+    title: 'Gmail AI Automation Platform',
+    description: 'Production-ready Google Workspace automation for Lawyer.com enabling complete Gmail management through natural language interfaces. Architected automated email composition and intelligent sorting/filtering. Built scalable GCP backend with Firestore and Cloud Run achieving 99.5% uptime, reducing manual data entry by 60%. Confidential - developed for company currently using in production. Happy to discuss architecture and approach.',
+    tags: ['Python', 'FastAPI', 'Git', 'GCP (Cloud Run)', 'Firestore', 'NLP', 'LLM Agents'],
+    category: 'AI/ML & Integration',
+    date: '2025-08',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    confidential: true,
+    image: '/images/logo/gmail_logo.png'
   },
   {
     id: 'muse',
@@ -28,8 +102,20 @@ export const projects: Project[] = [
     progress: 90,
     github: 'https://github.com/rayfould/Muse',
     link: '',
-    image: '/images/logo/muse_logo.png',
-    imageScale: 0.5
+    image: '/images/logo/muse_logo.png'
+  },
+  {
+    id: 'thornborn',
+    title: 'Thornborn.co',
+    description: 'Hired as the website designer for a fashion e-commerce brand and delivered a refined, minimalist storefront with collection-first navigation and polished product storytelling. Led visual direction, layout hierarchy, and brand-consistent UX to create a premium shopping experience across desktop and mobile.',
+    tags: ['JavaScript', 'HTML/CSS', 'Git'],
+    category: 'Web Design & E-Commerce',
+    date: '2026-01',
+    status: 'completed',
+    featured: true,
+    progress: 100,
+    link: 'https://thornborn.co',
+    image: '/images/logo/thornborn_cover.jpg'
   },
   {
     id: 'jasesace',
@@ -45,34 +131,6 @@ export const projects: Project[] = [
     image: '/images/logo/jase_logo.png'
   },
   {
-    id: 'nl2sql-engine',
-    title: 'QueryMind NL2SQL Engine',
-    description: 'Advanced natural language to SQL conversion engine with vector database integration achieving 85% query accuracy. Parses conversational input and maps natural language to complex database schemas. Built scalable query processing pipeline handling multiple database types. Confidential - developed for company currently using in production. Happy to discuss architecture and approach.',
-    tags: ['Python', 'FastAPI', 'SQL', 'Git', 'NLP', 'Vector Search'],
-    category: 'AI/ML',
-    date: '2025-07',
-    status: 'completed',
-    featured: true,
-    progress: 100,
-    confidential: true,
-    image: '/images/logo/nl2sql_logo.png',
-    imageScale: 0.7
-  },
-  {
-    id: 'gmail-ai-automation',
-    title: 'Gmail AI Automation Platform',
-    description: 'Production-ready Google Workspace automation for Lawyer.com enabling complete Gmail management through natural language interfaces. Architected automated email composition and intelligent sorting/filtering. Built scalable GCP backend with Firestore and Cloud Run achieving 99.5% uptime, reducing manual data entry by 60%. Confidential - developed for company currently using in production. Happy to discuss architecture and approach.',
-    tags: ['Python', 'FastAPI', 'Git', 'GCP (Cloud Run)', 'Firestore', 'NLP', 'LLM Agents'],
-    category: 'AI/ML & Integration',
-    date: '2025-08',
-    status: 'completed',
-    featured: true,
-    progress: 100,
-    confidential: true,
-    image: '/images/logo/gmail_logo.png',
-    imageScale: 0.6
-  },
-  {
     id: 'portfolio-website',
     title: 'Portfolio Website',
     description: 'Modern, interactive portfolio built with Astro and React featuring dynamic typing animations, interactive terminal interface, skill-based project filtering, and custom pixel canvas components. Includes particle.js background effects, frosted glass UI elements, and responsive design across all breakpoints.',
@@ -84,74 +142,6 @@ export const projects: Project[] = [
     progress: 95,
     github: 'https://github.com/rayfould/Personal-Website',
     link: 'https://rudolfrissling.com',
-    image: '/images/logo/rdy_logo_white.png',
-    imageScale: 0.6
-  },
-  {
-    id: 'thornborn',
-    title: 'Thornborn.co',
-    description: 'Hired as the website designer for a fashion e-commerce brand and delivered a refined, minimalist storefront with collection-first navigation and polished product storytelling. Led visual direction, layout hierarchy, and brand-consistent UX to create a premium shopping experience across desktop and mobile.',
-    tags: ['JavaScript', 'HTML/CSS', 'Git'],
-    category: 'Web Design & E-Commerce',
-    date: '2026-01',
-    status: 'completed',
-    featured: true,
-    progress: 100,
-    link: 'https://thornborn.co',
-    image: '/images/logo/thornborn_cover.jpg',
-    imageScale: 1.7
-  },
-  {
-    id: 'coursebranch',
-    title: 'CourseBranch',
-    description: 'AI-powered academic planning platform for BU students, combining multi-year course planning, transcript imports, prerequisite graphs, degree tracking, and conflict-free timetable generation. Engineered an AI-assisted requirements pipeline converting unstructured university bulletins into provenance-bound degree rules, publishing validated artifacts for 106 majors with 0 blockers.',
-    tags: ['ASP.NET Core', 'Supabase', 'PostgreSQL', 'Ollama', 'Vercel', 'DigitalOcean', 'Git'],
-    category: 'AI Product Engineering & Academic Tooling',
-    status: 'completed',
-    featured: true,
-    progress: 100,
-    image: '/images/logo/CourseBranch_logo.png',
-    imageScale: 1.0
-  },
-  {
-    id: 'syncora',
-    title: 'Syncora',
-    description: 'A platform focused on persistent memory across devices, with shared project context, reliable continuity between work sessions, and streamlined team coordination across distributed engineering workflows.',
-    tags: ['TypeScript', 'Node.js', 'Git', 'NestJS', 'Next.js', 'React', 'PostgreSQL', 'Drizzle ORM', 'RAG', 'Prompt/Context Engineering'],
-    category: 'B2B Developer Tooling',
-    date: '2026-02',
-    status: 'in-progress',
-    featured: true,
-    progress: 20,
-    image: '/images/logo/Syncora_logo_full-no-bg.png',
-    imageScale: 1.5
-  },
-  {
-    id: 'crm-hub',
-    title: 'CRM Hub',
-    description: 'Multi-tenant CRM automation platform deployed across 5 law firms, processing 5,000+ clients at approximately 2,000 per month. Built fault-tolerant infrastructure with 99.5% availability, an engine powering 500+ production workflows, and a custom Lawmatics GraphQL integration. Confidential - developed for Lawyer.com and currently used in production.',
-    tags: ['GraphQL', 'CRM Automation', 'Workflow Orchestration', 'Systems Engineering'],
-    category: 'AI Product Engineering & CRM Automation',
-    date: '2025-05',
-    status: 'completed',
-    featured: true,
-    progress: 100,
-    confidential: true,
-    image: '/images/logo/crmhub_logo.png',
-    imageScale: 0.85
-  },
-  {
-    id: 'blackvertex',
-    title: 'BlackVertex',
-    description: '$10K+ revenue brand and software studio delivering strategy, identity, web, and product engineering. Built an internal AI platform for research, personalized outreach, and persistent knowledge while launching ventures including Creator Atlas, Syncora, and Thornborn.',
-    tags: ['TypeScript', 'JavaScript', 'Node.js', 'HTML/CSS', 'Git', 'LLM Agents'],
-    category: 'Founder, Brand & Software Engineering',
-    date: '2026-01',
-    status: 'in-progress',
-    featured: true,
-    progress: 100,
-    link: 'https://blackvertex.co',
-    image: '/images/logo/blackvertex_logo.png',
-    imageScale: 0.55
+    image: '/images/logo/rdy_logo_white.png'
   }
 ];
